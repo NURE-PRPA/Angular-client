@@ -1,0 +1,76 @@
+<div style="height: 600px; width: 100%; border: 1px solid #e83e8c; padding: 25px; display: flex; justify-content: space-evenly">
+  <div style="height: fit-content; width:35%; background-color: darkslateblue; border-radius: 15px; color: white; padding: 20px; margin-top: 30px">
+    <h3>My account</h3>
+    <h5 *ngIf="userType === 'listener'">
+      Listener
+    </h5>
+    <h5 *ngIf="userType === 'user'">
+      User
+    </h5>
+    <table style="width: 100%; margin-top: 20px; font-size: 19px">
+      <tr>
+        <td style="width: 40%">Name</td>
+        <td style="width: 60%" colspan="2"><i>{{user!.firstName}} {{user!.lastName}}</i></td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td colspan="2"><i>male</i></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td colspan="2"><i>{{user!.email}}</i></td>
+      </tr>
+      <tr style="height: 15px"></tr>
+      <tr>
+        <td></td>
+        <td style="width: 25%">
+          <button type="button" class="btn btn-warning">Edit info</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger">Log out</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div  style="height: fit-content; width: 60%; border-radius: 15px; padding: 20px; margin-top: 0px;">
+    <h3 *ngIf="userType === 'listener'">My certificates</h3>
+    <div *ngIf="userType === 'listener'" style="display: flex; flex-wrap: wrap">
+      <div class="card bg-light mb-3" style="max-width: 15rem; margin-right: 25px">
+        <div class="card-header">11-05-2023</div>
+        <div class="card-body">
+          <h4 class="card-title">Introduction to C#</h4>
+        </div>
+      </div>
+      <div class="card bg-light mb-3" style="max-width: 15rem; margin-right: 25px">
+        <div class="card-header">11-05-2023</div>
+        <div class="card-body">
+          <h4 class="card-title">Introduction to C#</h4>
+        </div>
+      </div>
+      <div class="card bg-light mb-3" style="max-width: 15rem; margin-right: 25px">
+        <div class="card-header">11-05-2023</div>
+        <div class="card-body">
+          <h4 class="card-title">Introduction to C#</h4>
+        </div>
+      </div>
+      <div class="card bg-light mb-3" style="max-width: 15rem; margin-right: 25px">
+        <div class="card-header">11-05-2023</div>
+        <div class="card-body">
+          <h4 class="card-title">Introduction to C#</h4>
+        </div>
+      </div>
+      <div class="card bg-light mb-3" style="max-width: 15rem; margin-right: 25px">
+        <div class="card-header">11-05-2023</div>
+        <div class="card-body">
+          <h4 class="card-title">Introduction to C#</h4>
+        </div>
+      </div>
+      <div class="card bg-light mb-3" style="max-width: 15rem; margin-right: 25px">
+        <div class="card-header">11-05-2023</div>
+        <div class="card-body">
+          <h4 class="card-title">Introduction to C#</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

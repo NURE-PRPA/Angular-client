@@ -1,0 +1,115 @@
+<div style="min-height: 800px; height: fit-content; width: 100%; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover;">
+  <div *ngIf="courseLoading" class="spinner-border text-primary" role="status" style="position: fixed; margin-left: 48%; margin-top: 300px; scale: 3; color: white !important;"></div>
+  <div *ngIf="!courseLoading" style="display: flex; flex-wrap: wrap; justify-content: left; height: fit-content; width: 100%; padding: 50px; margin: auto;">
+  <div class="card mb-3" style="margin-right: 50px; width: 30rem; height: fit-content; border-color: #2D033B; background-color: #f5e8ff; background: url('https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-103545.jpg') no-repeat; background-size: cover;">
+    <div class="card-body">
+      <table style="width: 100%; color: white; font-size: 14px; font-weight: bold">
+        <tr>
+          <td style="width: 80%; font-size: 20px">{{currentCourse?.name ?? 'default'}}</td>
+          <td style="text-align: right">{{currentCourse?.modules?.length ?? 0}} modules</td>
+        </tr>
+        <tr>
+          <td style="color: deepskyblue; font-size: 17px; font-weight: normal"><sup>NURE</sup></td>
+          <td style="text-align: right">{{currentCourse?.price ?? 0}} $</td>
+        </tr>
+        <tr>
+          <td style="font-size: 17px">Programming</td>
+          <td style="text-align: right" rowspan="2">
+            <a href="#" type="button" class="btn btn-light" style="font-weight: bold;">Enroll</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Beginner</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card mb-3" style="width: 40rem; height: fit-content; border-color: #00000000; background-color: #00000000; color: white; font-style: italic;">
+    <div class="card-body">
+      <h4 style="margin-bottom: 20px"><i class="bi bi-clock" style="font-size: 27px"></i> Duration: 10 hours</h4>
+      <h4><i class="bi bi-person-check" style="font-size: 30px"></i> Lecturer: {{currentCourse?.lecturer?.firstName}} {{currentCourse?.lecturer?.lastName}}</h4>
+    </div>
+  </div>
+
+    <div class="card mb-3" style="width: 30rem; height: fit-content; border: 2px solid white; background-color: #00000000;">
+      <div class="card-body">
+        <h5 style="color: white; font-size: 20px; font-weight: bold">About this course</h5>
+        <p style="color: white; font-size: 14px; font-weight: bold; margin-bottom: -5px">
+          {{currentCourse?.description}}
+        </p>
+      </div>
+    </div>
+
+<!--  <div style="width: 100%; color: white; display: flex;">-->
+<!--    <div style="padding: 15px; width: 30%; margin-right: 5%; border-radius: 10px;">-->
+
+<!--    </div>-->
+<!--    <div style="padding: 15px; width: 65%;">-->
+<!--      <h1>Course progress</h1>-->
+<!--      <div class="progress" style="background-color: #c793ff;">-->
+<!--        <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <div style="width: 100%; display: flex;">
+    <app-module-lister></app-module-lister>
+  </div>
+<!--  <div style="width: 100%; display: flex;">-->
+<!--    <div style="padding: 15px; width: 30%; margin-right: 5%; border: 1px solid #2D033B; background-color: #c793ff; border-radius: 10px;">-->
+<!--      <a href="#" style="text-decoration: none; width: 100%">-->
+<!--        <div style="background-color: #906b9b; display: flex; flex-wrap: nowrap; align-items: center; border-radius: 7px; border: 1px solid #2D033B; width: 100%; padding: 8px; padding-top: 15px; color: white; margin-bottom: 15px;">-->
+<!--          <h3 style="margin-left: 15px; width: 12%">1</h3>-->
+<!--          <h6>Introduction to C#</h6>-->
+<!--        </div>-->
+<!--      </a>-->
+<!--      <a href="#" style="text-decoration: none; width: 100%">-->
+<!--        <div style="background-color: #906b9b; display: flex; flex-wrap: nowrap; align-items: center; border-radius: 7px; border: 1px solid #2D033B; width: 100%; padding: 8px; padding-top: 15px; color: white; margin-bottom: 15px;">-->
+<!--          <h3 style="margin-left: 15px; width: 12%">2</h3>-->
+<!--          <h6>Introduction to SQL</h6>-->
+<!--        </div>-->
+<!--      </a>-->
+<!--      <a href="#" style="text-decoration: none; width: 100%">-->
+<!--        <div style="background-color: #906b9b; display: flex; flex-wrap: nowrap; align-items: center; border-radius: 7px; border: 1px solid #2D033B; width: 100%; padding: 8px; padding-top: 15px; color: white; margin-bottom: 15px;">-->
+<!--          <h3 style="margin-left: 15px; width: 12%">3</h3>-->
+<!--          <h6>Introduction to ASP.NET</h6>-->
+<!--        </div>-->
+<!--      </a>-->
+<!--    </div>-->
+
+<!--    <div style="padding: 15px; width: 65%; border-color: #2D033B; background-color: #c793ff; border-radius: 10px; display: flex; flex-wrap: wrap;">-->
+<!--      <a href="#" style="text-decoration: none; width: 100%;">-->
+<!--        <div style="background-color: #ffffff; text-align: left; border-radius: 7px; border: 1px solid #2D033B; width: fit-content; height: fit-content; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">-->
+<!--          <table style="width: 250px; font-weight: bold; font-size: 13px;">-->
+<!--            <tr>-->
+<!--              <td style="width: 80%">Test</td>-->
+<!--              <td style="text-align: right;">16/18</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td colspan="2" style="font-size: 20px;">Introduction to C#</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td colspan="2">18 questions</td>-->
+<!--            </tr>-->
+<!--          </table>-->
+<!--        </div>-->
+<!--      </a>-->
+<!--      <a href="#" style="text-decoration: none; margin-right: 15px;">-->
+<!--        <div style="background-color: #ffffff; text-align: center; border-radius: 7px; border: 1px solid #2D033B; width: 180px; height: fit-content; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">-->
+<!--          <div style="background-image: url('assets/courses/pdf_logo.png'); width: 100%; height: 100px; background-size: contain; background-repeat: no-repeat; background-position: center;"></div>-->
+<!--          <br>-->
+<!--          <h6>Introduction to C#</h6>-->
+<!--        </div>-->
+<!--      </a>-->
+<!--      <a href="#" style="text-decoration: none; margin-right: 15px;">-->
+<!--        <div style="background-color: #ffffff; text-align: center; border-radius: 7px; border: 1px solid #2D033B; width: 180px; height: fit-content; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">-->
+<!--          <div style="background-image: url('assets/courses/pdf_logo.png'); width: 100%; height: 100px; background-size: contain; background-repeat: no-repeat; background-position: center;"></div>-->
+<!--          <br>-->
+<!--          <h6>Generics</h6>-->
+<!--        </div>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--  </div>-->
+  </div>
+</div>

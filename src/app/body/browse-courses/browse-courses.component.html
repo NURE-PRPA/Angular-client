@@ -1,0 +1,45 @@
+<!--3d6d79-->
+<div style="height: 630px; width: 100%; padding: 50px; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover">
+  <div *ngIf="coursesLoading" class="spinner-border text-primary" role="status" style="position: fixed; margin-left: 45%; margin-top: 250px; scale: 3; color: white !important;"></div>
+  <div *ngIf="!coursesLoading" style="display: flex; justify-content: left; flex-wrap: wrap; width: 100%;">
+    <a *ngFor="let course of courses" routerLink="{{course.id}}" style="text-decoration: none; margin-right: 5px">
+      <div class="card mb-3" style="width: 25rem; border-color: #2D033B; background-color: #f5e8ff; background: url('https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-103545.jpg')">
+        <div class="card-body">
+          <table style="width: 100%; color: white; font-size: 14px; font-weight: bold">
+            <tr>
+              <td style="width: 80%; font-size: 20px">{{course.name}}</td>
+              <td style="text-align: right">{{course.modules?.length ?? 0}} modules</td>
+            </tr>
+            <tr>
+              <td style="color: deepskyblue; font-size: 17px; font-weight: normal"><sup>NURE</sup></td>
+            </tr>
+            <tr>
+              <td style="font-size: 17px" colspan="2">Programming</td>
+            </tr>
+            <tr>
+              <td>Beginner</td>
+              <td style="text-align: right">{{course.price}} $</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </a>
+
+
+
+  </div>
+<!--  <div class="card border-primary mb-3" style="max-width: 25rem;">-->
+<!--    <div class="card-body">-->
+<!--      <div style="display: flex; justify-content: space-between">-->
+<!--        <div>C# for everyone</div>-->
+<!--        <div> 10 modules </div>-->
+<!--      </div>-->
+<!--      <p class="text-secondary">Programming</p>-->
+<!--      <div style="display: flex; justify-content: space-between">-->
+<!--        <small>Beginner</small>-->
+<!--        <small>Free</small>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+</div>
