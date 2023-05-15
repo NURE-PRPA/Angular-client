@@ -7,6 +7,7 @@ import {RegisterLecturerComponent} from "./register-lecturer/register-lecturer.c
 import {RegisterChooseComponent} from "./register-choose/register-choose.component";
 import {RegisterComponent} from "./register.component";
 import {RegisterListenerComponent} from "./register-listener/register-listener.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -16,11 +17,12 @@ import {RegisterListenerComponent} from "./register-listener/register-listener.c
     RegisterComponent,
     RegisterListenerComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    RegisterRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        RegisterRoutingModule,
+        ReactiveFormsModule
+    ],
   exports: []
 })
 export class RegisterModule { }

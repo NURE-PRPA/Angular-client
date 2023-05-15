@@ -4,9 +4,38 @@
   -webkit-text-fill-color: transparent;
 }
 
+.topic-div{
+  transition: 0.3s transform;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.topic-div:hover{
+  transform: scale(1.07);
+}
+
+.topic-inner-div{
+  background-color: #00000069;
+  height: 100%;
+  padding-top: 65px;
+  transition: 0.3s background-color;
+  text-align: center;
+}
+
+.topic-inner-div:hover{
+  background-color: #0000008c;
+}
+
 .sign-up-btn {
-  background: linear-gradient(to right, #412961, #812d86);
-  box-shadow: 0px 0px 10px 5px #fbb5ff;
+  background: linear-gradient(90deg, var(--c1, #412961), var(--c2, #e14ee9) 51%, var(--c1, #412961)) var(--x, 0)/ 200%;
+  transition: 0.5s;
+  border-width: 0px;
+  //box-shadow: 0px 0px 10px 5px #fbb5ff;
+}
+
+.sign-up-btn:hover{
+  --x: 100%;
 }
 
 .home-bg {

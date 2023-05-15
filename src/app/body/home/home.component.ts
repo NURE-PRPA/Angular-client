@@ -31,8 +31,8 @@ export class HomeComponent {
       name: 'Geography'
     },
     {
-      image: 'assets/sections.images/astronomy.png',
-      name: 'Astronomy'
+      image: 'assets/sections.images/physics.jpg',
+      name: 'Physics'
     },
     {
       image: 'assets/sections.images/english.png',

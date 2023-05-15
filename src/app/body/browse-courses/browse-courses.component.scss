@@ -1,0 +1,132 @@
+.form-filter{
+  margin-left: 90px;
+  margin-bottom: 50px;
+  width: 50%;
+  color: white;
+}
+
+.div-topic, .div-difficulty{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-filter h5{
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.form-filter label span{
+  text-align: center;
+}
+
+.form-filter label span i{
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.form-filter label{
+  cursor: pointer;
+}
+
+.form-filter label input[type="checkbox"]{
+  display: none;
+}
+
+.form-filter label{
+  margin-right: 10px;
+}
+
+.form-filter label span{
+  position: relative;
+  display: inline-block;
+  transition: 0.3s;
+  overflow: hidden;
+  color: #464646;
+  padding: 15px 30px;
+}
+
+.form-filter label input[type="checkbox"]:checked ~ span
+{
+  color: black;
+}
+
+.form-filter label[class="filter-programming"] span{
+  background-color: #ba84ce;
+}
+
+.form-filter label[class="filter-programming"] input[type="checkbox"]:checked ~ span
+{
+  background-color: #d04fff;
+}
+
+.form-filter label[class="filter-calculus"] span{
+  background-color: #cead82;
+}
+
+.form-filter label[class="filter-calculus"] input[type="checkbox"]:checked ~ span
+{
+  background-color: #ffae45;
+}
+
+.form-filter label[class="filter-chemistry"] span{
+  background-color: #7baec2;
+}
+
+.form-filter label[class="filter-chemistry"] input[type="checkbox"]:checked ~ span
+{
+  background-color: #4ecdff;
+}
+
+.form-filter label[class="filter-geography"] span{
+  background-color: #94cd81;
+}
+
+.form-filter label[class="filter-geography"] input[type="checkbox"]:checked ~ span
+{
+  background-color: #7aff4e;
+}
+
+.form-filter label[class="filter-physics"] span{
+  background-color: #d68484;
+}
+
+.form-filter label[class="filter-physics"] input[type="checkbox"]:checked ~ span
+{
+  background-color: #fe4e4e;
+}
+
+.form-filter label[class="filter-english"] span{
+  background-color: #d7d38d;
+}
+
+.form-filter label[class="filter-english"] input[type="checkbox"]:checked ~ span
+{
+  background-color: #fff644;
+}
+
+.form-filter label[class="filter-beginner"] span{
+  background-color: #94cd81;
+}
+
+.form-filter label[class="filter-beginner"] input[type="checkbox"]:checked ~ span
+{
+  background-color: #7aff4e;
+}
+
+.form-filter label[class="filter-advanced"] span{
+  background-color: #d68484;
+}
+
+.form-filter label[class="filter-advanced"] input[type="checkbox"]:checked ~ span
+{
+  background-color: #fe4e4e;
+}
+
+.form-filter label[class="filter-intermediate"] span{
+  background-color: #d7d38d;
+}
+
+.form-filter label[class="filter-intermediate"] input[type="checkbox"]:checked ~ span
+{
+  background-color: #fff644;
+}

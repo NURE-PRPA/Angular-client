@@ -1,24 +1,208 @@
 <!--3d6d79-->
-<div style="height: 630px; width: 100%; padding: 50px; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover">
+<div style="min-height: 600px; height: fit-content; width: 100%; padding: 50px; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover">
+  <form action="" class="form-filter">
+    <h5>Topic (0 selected)</h5>
+    <div class="div-topic">
+      <label class="filter-programming">
+        <input type="checkbox" name="">
+        <span><i class="bi bi-cpu filter-icon"></i><br>PROGRAMMING</span>
+      </label>
+      <label class="filter-calculus">
+        <input type="checkbox" name="">
+        <span><i class="bi bi-calculator"></i><br>CALCULUS</span>
+      </label>
+      <label class="filter-chemistry">
+        <input type="checkbox" name="">
+        <span><i class="bi bi-gem"></i><br>CHEMISTRY</span>
+      </label>
+      <label class="filter-geography">
+        <input type="checkbox" name="">
+        <span><i class="bi bi-globe2"></i><br>GEOGRAPHY</span>
+      </label>
+      <label class="filter-physics">
+        <input type="checkbox" name="">
+        <span><i class="bi bi-radioactive"></i><br>PHYSICS</span>
+      </label>
+      <label class="filter-english">
+        <input type="checkbox" name="">
+        <span><i class="bi bi-translate"></i><br>ENGLISH</span>
+      </label>
+    </div>
+
+    <h5>Difficulty (0 selected)</h5>
+    <div class="div-difficulty">
+      <label class="filter-beginner">
+        <input type="checkbox" name="">
+        <span>BEGINNER</span>
+      </label>
+      <label class="filter-intermediate">
+        <input type="checkbox" name="">
+        <span>INTERMEDIATE</span>
+      </label>
+      <label class="filter-advanced">
+        <input type="checkbox" name="">
+        <span>ADVANCED</span>
+      </label>
+    </div>
+  </form>
   <div *ngIf="coursesLoading" class="spinner-border text-primary" role="status" style="position: fixed; margin-left: 45%; margin-top: 250px; scale: 3; color: white !important;"></div>
-  <div *ngIf="!coursesLoading" style="display: flex; justify-content: left; flex-wrap: wrap; width: 100%;">
-    <a *ngFor="let course of courses" routerLink="{{course.id}}" style="text-decoration: none; margin-right: 5px">
-      <div class="card mb-3" style="width: 25rem; border-color: #2D033B; background-color: #f5e8ff; background: url('https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-103545.jpg')">
+  <div *ngIf="!coursesLoading" style="padding-left: 90px; display: flex; justify-content: left; flex-wrap: wrap; width: 100%;">
+    <a style="text-decoration: none; margin-right: 10px">
+      <div class="card mb-3" style="width: 20rem; border-width: 0px; background: url('assets/courses/course-background-purple.png'); background-size: cover;">
         <div class="card-body">
-          <table style="width: 100%; color: white; font-size: 14px; font-weight: bold">
+          <table style="width: 100%; color: white; font-size: 10px; font-weight: bold">
             <tr>
-              <td style="width: 80%; font-size: 20px">{{course.name}}</td>
-              <td style="text-align: right">{{course.modules?.length ?? 0}} modules</td>
+              <td style="width: 80%; font-size: 16px">Test course</td>
+              <td style="text-align: right">0 modules</td>
             </tr>
             <tr>
-              <td style="color: deepskyblue; font-size: 17px; font-weight: normal"><sup>NURE</sup></td>
+              <td style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>NURE</sup></td>
             </tr>
             <tr>
-              <td style="font-size: 17px" colspan="2">Programming</td>
+              <td style="font-size: 15px" colspan="2">Programming</td>
             </tr>
             <tr>
               <td>Beginner</td>
-              <td style="text-align: right">{{course.price}} $</td>
+              <td style="text-align: right">Free</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </a>
+
+    <a style="text-decoration: none; margin-right: 10px">
+      <div class="card mb-3" style="width: 20rem; border-width: 0px; background: url('assets/courses/course-background-red.png'); background-size: cover;">
+        <div class="card-body">
+          <table style="width: 100%; color: white; font-size: 10px; font-weight: bold">
+            <tr>
+              <td style="width: 80%; font-size: 16px">Test course</td>
+              <td style="text-align: right">0 modules</td>
+            </tr>
+            <tr>
+              <td style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>NURE</sup></td>
+            </tr>
+            <tr>
+              <td style="font-size: 15px" colspan="2">Programming</td>
+            </tr>
+            <tr>
+              <td>Beginner</td>
+              <td style="text-align: right">Free</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </a>
+
+    <a style="text-decoration: none; margin-right: 10px">
+      <div class="card mb-3" style="width: 20rem; border-width: 0px; background: url('assets/courses/course-background-green.png'); background-size: cover;">
+        <div class="card-body">
+          <table style="width: 100%; color: white; font-size: 10px; font-weight: bold">
+            <tr>
+              <td style="width: 80%; font-size: 16px">Test course</td>
+              <td style="text-align: right">0 modules</td>
+            </tr>
+            <tr>
+              <td style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>NURE</sup></td>
+            </tr>
+            <tr>
+              <td style="font-size: 15px" colspan="2">Programming</td>
+            </tr>
+            <tr>
+              <td>Beginner</td>
+              <td style="text-align: right">Free</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </a>
+
+    <a style="text-decoration: none; margin-right: 10px">
+      <div class="card mb-3" style="width: 20rem; border-width: 0px; background: url('assets/courses/course-background-blue.png'); background-size: cover;">
+        <div class="card-body">
+          <table style="width: 100%; color: white; font-size: 10px; font-weight: bold">
+            <tr>
+              <td style="width: 80%; font-size: 16px">Test course</td>
+              <td style="text-align: right">0 modules</td>
+            </tr>
+            <tr>
+              <td style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>NURE</sup></td>
+            </tr>
+            <tr>
+              <td style="font-size: 15px" colspan="2">Programming</td>
+            </tr>
+            <tr>
+              <td>Beginner</td>
+              <td style="text-align: right">Free</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </a>
+
+    <a style="text-decoration: none; margin-right: 10px">
+      <div class="card mb-3" style="width: 20rem; border-width: 0px; background: url('assets/courses/course-background-yellow.png'); background-size: cover;">
+        <div class="card-body">
+          <table style="width: 100%; color: white; font-size: 10px; font-weight: bold">
+            <tr>
+              <td style="width: 80%; font-size: 16px">Test course</td>
+              <td style="text-align: right">0 modules</td>
+            </tr>
+            <tr>
+              <td style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>NURE</sup></td>
+            </tr>
+            <tr>
+              <td style="font-size: 15px" colspan="2">Programming</td>
+            </tr>
+            <tr>
+              <td>Beginner</td>
+              <td style="text-align: right">Free</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </a>
+
+    <a style="text-decoration: none; margin-right: 10px">
+      <div class="card mb-3" style="width: 20rem; border-width: 0px; background: url('assets/courses/course-background-orange.png'); background-size: cover;">
+        <div class="card-body">
+          <table style="width: 100%; color: white; font-size: 10px; font-weight: bold">
+            <tr>
+              <td style="width: 80%; font-size: 16px">Test course</td>
+              <td style="text-align: right">0 modules</td>
+            </tr>
+            <tr>
+              <td style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>NURE</sup></td>
+            </tr>
+            <tr>
+              <td style="font-size: 15px" colspan="2">Programming</td>
+            </tr>
+            <tr>
+              <td>Beginner</td>
+              <td style="text-align: right">Free</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </a>
+
+    <a *ngFor="let course of courses" routerLink="{{course.id}}" style="text-decoration: none; margin-right: 10px">
+      <div class="card mb-3" style="width: 20rem; border-width: 0px; background: url('assets/courses/course-background-purple.png'); background-size: cover;">
+        <div class="card-body">
+          <table style="width: 100%; color: white; font-size: 10px; font-weight: bold">
+            <tr>
+              <td style="width: 80%; font-size: 16px">{{course.name}}</td>
+              <td style="text-align: right">{{course.modules?.length ?? 0}} modules</td>
+            </tr>
+            <tr>
+              <td style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>NURE</sup></td>
+            </tr>
+            <tr>
+              <td style="font-size: 15px" colspan="2">Programming</td>
+            </tr>
+            <tr>
+              <td>Beginner</td>
+              <td *ngIf="course.price != 0" style="text-align: right">{{course.price}} $</td>
+              <td *ngIf="course.price == 0" style="text-align: right">Free</td>
             </tr>
           </table>
         </div>

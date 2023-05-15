@@ -1,1 +1,63 @@
-<p>register-lecturer works!</p>
+<div style="padding: 70px; width: 100%; height: fit-content; background: url('https://images6.alphacoders.com/130/1301340.jpg'); background-size: cover">
+  <form class="register-form">
+    <h3 class="text-primary" style="text-align: center">Register as Lecturer</h3>
+
+    <table style="width: 100%">
+      <tr>
+        <td style="width: 50%">
+          <label for="exampleInputFirstName1" class="form-label mt-4 text-primary">First name</label>
+          <input type="text" class="form-control" id="exampleInputFirstName1" aria-describedby="emailHelp" placeholder="Enter first name" formControlName="email">
+        </td>
+        <td style="width: 50%">
+          <label for="exampleInputLastName1" class="form-label mt-4 text-primary">Last name</label>
+          <input type="text" class="form-control" id="exampleInputLastName1" aria-describedby="emailHelp" placeholder="Enter last name" formControlName="email">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="exampleSelectGender1" class="form-label mt-4 text-primary">Gender</label>
+          <select class="form-select" id="exampleSelectGender1">
+            <option>none</option>
+            <option>female</option>
+            <option>male</option>
+          </select>
+        </td>
+        <td>
+          <label for="exampleInputEmail1" class="form-label mt-4 text-primary">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="exampleSelectOrganization1" class="form-label mt-4 text-primary">Organization</label>
+          <select class="form-select" id="exampleSelectOrganization1">
+            <option>NURE</option>
+            <option>KPI</option>
+            <option>KNUKIM</option>
+          </select>
+        </td>
+        <td>
+          <label for="exampleInputExperience1" class="form-label mt-4 text-primary">Experience</label>
+          <input type="number" class="form-control" id="exampleInputExperience1" aria-describedby="emailHelp" placeholder="Enter experience" formControlName="email">
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <label for="exampleInputPassword1" class="form-label mt-4 text-primary">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" formControlName="password">
+        </td>
+      </tr>
+    </table>
+
+    <div style="width: 100%; text-align: center;  ">
+      <a type="submit" class="btn btn-primary register-btn" style="font-size: 22px; padding: 7px 22px; margin-top: 25px">Register</a><br>
+
+      <a class="btn-google btn btn-outline-primary" style="font-size: 22px; padding: 7px 18px; margin-top: 15px" routerLink="/sign-up">
+        <img src="assets/login/brands/google-logo.png" alt="" style="height: 25px; margin-right: 12px">
+        Register with Google</a>
+    </div>
+  </form>
+</div>
