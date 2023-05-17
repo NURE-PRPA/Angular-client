@@ -1,7 +1,7 @@
 <div style="min-height: 800px; height: fit-content; width: 100%; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover;">
   <div *ngIf="courseLoading" class="spinner-border text-primary" role="status" style="position: fixed; margin-left: 48%; margin-top: 300px; scale: 3; color: white !important;"></div>
   <div *ngIf="!courseLoading" style="display: flex; flex-wrap: wrap; justify-content: left; height: fit-content; width: 100%; padding: 50px; margin: auto;">
-  <div class="card mb-3" style="margin-right: 50px; width: 25rem; height: fit-content; border-color: #2D033B; background-color: #f5e8ff; background: url('assets/courses/course-background-purple.png') no-repeat; background-size: cover;">
+  <div [style.background]="'url(' + backgrounds[currentCourse?.topic ?? 0] + ')'" [style.background-size]="'cover'" class="card mb-3" style="margin-right: 50px; width: 25rem; height: fit-content; border-width: 0px; background-color: #f5e8ff;">
     <div class="card-body">
       <table style="width: 100%; color: white; font-size: 14px; font-weight: bold">
         <tr>
@@ -9,18 +9,18 @@
           <td style="text-align: right">{{currentCourse?.modules?.length ?? 0}} modules</td>
         </tr>
         <tr>
-          <td style="color: deepskyblue; font-size: 17px; font-weight: normal"><sup>NURE</sup></td>
+          <td style="color: deepskyblue; font-size: 17px; font-weight: normal"><sup>{{currentCourse?.lecturer?.organization?.name}}</sup></td>
           <td *ngIf="currentCourse?.price != 0" style="text-align: right">{{currentCourse?.price}} $</td>
           <td *ngIf="currentCourse?.price == 0" style="text-align: right">Free</td>
         </tr>
         <tr>
-          <td style="font-size: 17px">Programming</td>
+          <td style="font-size: 17px">{{topics[currentCourse?.topic ?? 0]}}</td>
           <td style="text-align: right; vertical-align: bottom" rowspan="2">
-            <a href="#" type="button" class="btn btn-light" style="font-weight: bold;">Enroll</a>
+            <a *ngIf="!isAquired" href="#" type="button" class="btn btn-light" style="font-weight: bold;">Enroll</a>
           </td>
         </tr>
         <tr>
-          <td>Beginner</td>
+          <td>{{difficultiesNames[currentCourse?.difficulty ?? 0]}}</td>
         </tr>
       </table>
     </div>
@@ -28,7 +28,7 @@
 
   <div class="card mb-3" style="width: 30rem; height: fit-content; border-color: #00000000; background-color: #00000000; color: white; font-style: italic;">
     <div class="card-body">
-      <h4 style="font-weight: normal; margin-bottom: 20px; margin-left: 3px"><i class="bi bi-clock" style="font-size: 27px"></i>&nbsp;&nbsp;Duration: 10 hours</h4>
+      <h4 style="font-weight: normal; margin-bottom: 20px; margin-left: 3px"><i class="bi bi-clock" style="font-size: 27px"></i>&nbsp;&nbsp;Duration: {{estimate}} hours</h4>
       <h4 style="font-weight: normal;"><i class="bi bi-person-check" style="font-size: 30px"></i>&nbsp;&nbsp;Lecturer: {{currentCourse?.lecturer?.firstName}} {{currentCourse?.lecturer?.lastName}}</h4>
     </div>
   </div>
@@ -42,8 +42,8 @@
       </div>
     </div>
 
-    <div style="width: 100%; color: white; display: flex; justify-content: right">
-      <div style="padding: 15px; width: 850px;">
+    <div *ngIf="isAquired" style="width: 100%; color: white; display: flex; justify-content: right">
+      <div style="padding: 15px; width: 67%;">
         <h1>Course progress</h1>
         <div class="progress" style="background-color: #00000000; border: 1.5px solid white">
           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -51,40 +51,85 @@
       </div>
     </div>
 
-  <div style="width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap">
-    <app-module-lister></app-module-lister>
 
-    <div style="padding: 15px; width: 850px; border: 1px solid #2D033B; background-color: #ffffff38; border-radius: 10px; display: flex; flex-wrap: wrap;">
-      <a href="#" style="text-decoration: none; width: 100%;">
-        <div style="background-color: #ffffff; text-align: left; border-radius: 7px; border: 1px solid #2D033B; width: fit-content; height: fit-content; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">
-          <table style="width: 250px; font-weight: bold; font-size: 13px;">
-            <tr>
-              <td style="width: 80%">Test</td>
-              <td style="text-align: right;">16/18</td>
-            </tr>
-            <tr>
-              <td colspan="2" style="font-size: 20px;">Introduction to C#</td>
-            </tr>
-            <tr>
-              <td colspan="2">18 questions</td>
-            </tr>
-          </table>
-        </div>
-      </a>
-      <a href="#" style="text-decoration: none; margin-right: 15px;">
-        <div style="background-color: #ffffff; text-align: center; border-radius: 7px; border: 1px solid #2D033B; width: 150px; height: fit-content; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">
-          <div style="background-image: url('assets/courses/pdf_logo.png'); width: 100%; height: 100px; background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-          <br>
-          <h6 style="font-size: 14px">Introduction to C#</h6>
-        </div>
-      </a>
-      <a href="#" style="text-decoration: none; margin-right: 15px;">
-        <div style="background-color: #ffffff; text-align: center; border-radius: 7px; border: 1px solid #2D033B; width: 150px; height: fit-content; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">
-          <div style="background-image: url('assets/courses/pdf_logo.png'); width: 100%; height: 100px; background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-          <br>
-          <h6 style="font-size: 14px">Generics</h6>
-        </div>
-      </a>
+
+
+  <div *ngIf="currentCourse?.modules?.length !== 0" style="width: 100%; display: flex; justify-content: left; flex-wrap: wrap">
+    <div class="module-changer">
+        <label *ngFor="let module of currentCourse?.modules" class="module-change">
+          <input value="{{module.id}}" type="radio" name="radio1" #mod (change)="onModuleChange(mod)">
+          <span>
+            <table>
+              <tr>
+                <td style="width: 15%"><h5>{{module.position}}</h5></td>
+                <td>{{module.name}}</td>
+              </tr>
+            </table>
+          </span>
+        </label>
+
+
+
+<!--      <a href="#" style="text-decoration: none; width: 100%">-->
+<!--        <div style="background: linear-gradient(to left, #a10dd3, #dd6cff, #ffadfc); display: flex; flex-wrap: nowrap; align-items: center; border-radius: 7px; border: 1px solid #2D033B; width: 100%; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">-->
+<!--          <h3 style="margin-left: 15px; width: 12%">1</h3>-->
+<!--          <h6>Introduction to C#</h6>-->
+<!--        </div>-->
+<!--      </a>-->
+<!--      <a href="#" style="text-decoration: none; width: 100%">-->
+<!--        <div style="background-color: #590874; display: flex; flex-wrap: nowrap; align-items: center; border-radius: 7px; border: 1px solid #2D033B; width: 100%; padding: 8px; padding-top: 15px; color: white; margin-bottom: 15px;">-->
+<!--          <h3 style="margin-left: 15px; width: 12%">2</h3>-->
+<!--          <h6>Introduction to SQL</h6>-->
+<!--        </div>-->
+<!--      </a>-->
+<!--      <a href="#" style="text-decoration: none; width: 100%">-->
+<!--        <div style="background-color: #590874; display: flex; flex-wrap: nowrap; align-items: center; border-radius: 7px; border: 1px solid #2D033B; width: 100%; padding: 8px; padding-top: 15px; color: white; margin-bottom: 15px;">-->
+<!--          <h3 style="margin-left: 15px; width: 12%">3</h3>-->
+<!--          <h6>Introduction to ASP.NET</h6>-->
+<!--        </div>-->
+<!--      </a>-->
+    </div>
+
+
+    <!--    <app-module-lister></app-module-lister>-->
+
+    <div style="padding: 15px; width: 67%; border: 1px solid #2D033B; background-color: #ffffff38; border-radius: 10px; display: flex; flex-wrap: wrap; color: white">
+
+      <div *ngIf="currentModule" style="width: 100%; align-items: flex-start; justify-content: space-between; display: flex">
+        <h3 style="margin-right: 15px">{{currentModule?.name}}</h3>
+        <h4>{{currentModule?.estimate}} hours</h4>
+      </div>
+<!--      <a href="#" style="text-decoration: none; width: 100%;">-->
+<!--        <div style="background-color: #ffffff; text-align: left; border-radius: 7px; border: 1px solid #2D033B; width: fit-content; height: fit-content; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">-->
+<!--          <table style="width: 250px; font-weight: bold; font-size: 13px;">-->
+<!--            <tr></tr>-->
+<!--            <tr>-->
+<!--              <td style="width: 80%">Test</td>-->
+<!--              <td style="text-align: right;">16/18</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td colspan="2" style="font-size: 20px;">Introduction to C#</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td colspan="2">18 questions</td>-->
+<!--            </tr>-->
+<!--          </table>-->
+<!--        </div>-->
+<!--      </a>-->
+<!--      <a href="#" style="text-decoration: none; margin-right: 15px;">-->
+<!--        <div style="background-color: #ffffff; text-align: center; border-radius: 7px; border: 1px solid #2D033B; width: 150px; height: fit-content; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">-->
+<!--          <div style="background-image: url('assets/courses/pdf_logo.png'); width: 100%; height: 100px; background-size: contain; background-repeat: no-repeat; background-position: center;"></div>-->
+<!--          <br>-->
+<!--          <h6 style="font-size: 14px">Introduction to C#</h6>-->
+<!--        </div>-->
+<!--      </a>-->
+<!--      <a href="#" style="text-decoration: none; margin-right: 15px;">-->
+<!--        <div style="background-color: #ffffff; text-align: center; border-radius: 7px; border: 1px solid #2D033B; width: 150px; height: fit-content; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">-->
+<!--          <div style="background-image: url('assets/courses/pdf_logo.png'); width: 100%; height: 100px; background-size: contain; background-repeat: no-repeat; background-position: center;"></div>-->
+<!--          <br>-->
+<!--          <h6 style="font-size: 14px">Generics</h6>-->
+<!--        </div>-->
+<!--      </a>-->
     </div>
   </div>
 <!--  <div style="width: 100%; display: flex;">-->

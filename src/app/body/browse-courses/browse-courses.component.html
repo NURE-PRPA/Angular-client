@@ -1,31 +1,31 @@
 <!--3d6d79-->
 <div
-  style="min-height: 600px; height: fit-content; width: 100%; padding: 50px; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover">
+  style="min-height: 1200px; height: fit-content; width: 100%; padding: 50px; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover">
   <form action="" class="form-filter">
     <h5>Topic ({{ topicFilters.length }} selected)</h5>
     <div class="div-topic">
       <label class="filter-programming">
-        <input value="1" type="checkbox" #prog (change)="onTopicFilter(prog)">
+        <input value="1" checked="checked" type="checkbox" #prog (change)="onTopicFilter(prog)">
         <span><i class="bi bi-cpu filter-icon"></i><br>PROGRAMMING</span>
       </label>
       <label class="filter-calculus">
-        <input value="2" #calc (change)="onTopicFilter(calc)" type="checkbox">
+        <input value="2" checked="checked" #calc (change)="onTopicFilter(calc)" type="checkbox">
         <span><i class="bi bi-calculator"></i><br>CALCULUS</span>
       </label>
       <label class="filter-chemistry">
-        <input value="4" #chem (change)="onTopicFilter(chem)" type="checkbox">
+        <input value="4" checked="checked" #chem (change)="onTopicFilter(chem)" type="checkbox">
         <span><i class="bi bi-gem"></i><br>CHEMISTRY</span>
       </label>
       <label class="filter-geography">
-        <input value="7" #geo (change)="onTopicFilter(geo)" type="checkbox">
+        <input value="6" checked="checked" #geo (change)="onTopicFilter(geo)" type="checkbox">
         <span><i class="bi bi-globe2"></i><br>GEOGRAPHY</span>
       </label>
       <label class="filter-physics">
-        <input value="3" #phys (change)="onTopicFilter(phys)" type="checkbox">
+        <input value="3" checked="checked" #phys (change)="onTopicFilter(phys)" type="checkbox">
         <span><i class="bi bi-radioactive"></i><br>PHYSICS</span>
       </label>
       <label class="filter-english">
-        <input value="5" #eng (change)="onTopicFilter(eng)" type="checkbox">
+        <input value="5" checked="checked" #eng (change)="onTopicFilter(eng)" type="checkbox">
         <span><i class="bi bi-translate"></i><br>ENGLISH</span>
       </label>
     </div>
@@ -33,15 +33,15 @@
     <h5>Difficulty ({{difficulties.length}} selected)</h5>
     <div class="div-difficulty">
       <label class="filter-beginner">
-        <input value="1" #beg (change)="onDifficultyChange(beg)" type="checkbox">
+        <input value="1" checked="checked" #beg (change)="onDifficultyChange(beg)" type="checkbox">
         <span>BEGINNER</span>
       </label>
       <label class="filter-intermediate">
-        <input value="2" #inter (change)="onDifficultyChange(inter)" type="checkbox" name="">
+        <input value="2" checked="checked" #inter (change)="onDifficultyChange(inter)" type="checkbox" name="">
         <span>INTERMEDIATE</span>
       </label>
       <label class="filter-advanced">
-        <input value="3" #adv (change)="onDifficultyChange(adv)" type="checkbox" name="">
+        <input value="3" checked="checked" #adv (change)="onDifficultyChange(adv)" type="checkbox" name="">
         <span>ADVANCED</span>
       </label>
     </div>
@@ -50,10 +50,10 @@
        style="position: fixed; margin-left: 45%; margin-top: 250px; scale: 3; color: white !important;"></div>
   <div *ngIf="!coursesLoading"
        style="padding-left: 90px; display: flex; justify-content: left; flex-wrap: wrap; width: 100%;">
-    <div *ngFor="let course of filteredCourses">
+    <div *ngFor="let course of filteredCourses" style="margin-right: 10px">
 <!--      <a *ngIf="filteredCourses?.indexOf(course) !== -1" routerLink="{{course.id}}"-->
       <a routerLink="{{course.id}}"
-         style="text-decoration: none; margin-right: 10px">
+         style="text-decoration: none;">
         <div [style.background]="'url(' + backgrounds[course.topic] + ')'" [style.background-size]="'cover'"
              class="card mb-3" style="width: 20rem; border-width: 0px;">
           <div class="card-body">
@@ -63,7 +63,7 @@
                 <td style="text-align: right">{{course.modules?.length ?? 0}} modules</td>
               </tr>
               <tr>
-                <td style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>NURE</sup></td>
+                <td style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>{{course?.lecturer?.organization?.name}}</sup></td>
               </tr>
               <tr>
                 <td style="font-size: 15px" colspan="2">{{topics[course.topic]}}</td>

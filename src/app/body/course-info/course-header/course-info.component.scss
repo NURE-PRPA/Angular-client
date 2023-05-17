@@ -1,0 +1,76 @@
+.module-change{
+
+}
+
+.module-changer{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 30%;
+  margin-right: 3%;
+  border: 1px solid #2D033B;
+  background-color: #ffffff38;
+  border-radius: 10px;
+}
+
+.module-changer h5{
+  margin-top: 7px;
+  font-size: 30px;
+}
+
+.module-changer label span{
+  text-align: center;
+  width: 100%;
+}
+
+.module-changer label span i{
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.module-changer label{
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.module-changer label span table{
+  width: 100%;
+  text-align: left;
+  margin-left: -7px;
+  font-size: 17px;
+}
+
+.module-changer label input[type="radio"]{
+  display: none;
+}
+
+.module-changer label{
+  margin-right: 10px;
+}
+
+.module-changer label span{
+  position: relative;
+  display: inline-block;
+  transition: 0.3s;
+  overflow: hidden;
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: 1px solid #2D033B;
+}
+
+.module-changer label input[type="checkbox"]:checked ~ span
+{
+  color: black;
+}
+
+.module-changer label span{
+  background-color: #590874;
+  color: white;
+}
+
+.module-changer label input[type="radio"]:checked ~ span
+{
+  background: linear-gradient(to left, #a10dd3, #dd6cff, #ffadfc);
+  color: #2D033B;
+}

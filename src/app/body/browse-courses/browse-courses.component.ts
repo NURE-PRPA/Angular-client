@@ -15,8 +15,8 @@ export class BrowseCoursesComponent implements OnInit {
   courses: Course[] | null | undefined = [];
   filteredCourses: Course[] | undefined = [];
   coursesLoading: boolean = true;
-  topicFilters: string[] = [];
-  difficulties: string[] = [];
+  topicFilters: string[] = ['1', '2', '3', '4', '5', '6'];
+  difficulties: string[] = ['1', '2', '3'];
   topics: Record<number, string> = Topics;
   difficultiesNames: Record<number, string> = Difficulties;
 
@@ -41,12 +41,11 @@ export class BrowseCoursesComponent implements OnInit {
           if (response.status == OperationResult.OK) {
             this.courses = response.content ?? [];
             this.coursesLoading = false;
+            this.filteredCourses = this.courses ?? [];
             console.log(this.courses);
           }
         }
       );
-
-    this.filteredCourses = this.courses ?? [];
   }
 
   filterCourses() {

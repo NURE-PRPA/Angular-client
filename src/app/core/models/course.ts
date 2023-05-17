@@ -1,5 +1,6 @@
 import {Lecturer} from "./lecturer";
 import {CourseDifficulty} from "./CourseDifficulty";
+import {Module} from "./module";
 
 //export class User {
   //id: number = 0;
@@ -30,13 +31,13 @@ export const Difficulties: Record<number, string> = {
 };
 
 export class Course {
-  id: number = 0;
+  id: string = '';
   name: string = '';
   description: string = '';
   difficulty: number = 0;
   price: number = 0;
   topic: number = 0;
   lecturer: Lecturer | null = null;
-  modules: any = [];
+  modules: Module[] | null = [];
   subscriptions: any = [];
 }
