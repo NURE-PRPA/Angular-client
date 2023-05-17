@@ -1,6 +1,8 @@
 import {Course} from "./course";
 import {CourseDifficulty} from "./CourseDifficulty";
 import {Time} from "@angular/common";
+import {Test} from "./test";
+import {ContentContainer} from "./contentContainer";
 
 
 export class Module {
@@ -8,7 +10,8 @@ export class Module {
   name: string = '';
   description: string = '';
   course: Course | null = null;
-  test: any = [];
   estimate: number = 0;
   position: number = 0;
+  test: Test | null = null;
+  contentContainers: ContentContainer[] | null = [];
 }

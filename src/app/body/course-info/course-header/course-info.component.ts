@@ -1,11 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Course, Difficulties, Topics} from "../../../core/models/course";
 import {Response} from "../../../core/models/Response";
 import {OperationResult} from "../../../core/models/OperationResult";
 import {Module} from "../../../core/models/module";
 import {Time} from "@angular/common";
+import {User} from "../../../core/models/user";
+import {Listener} from "../../../core/models/listener";
 
 
 
@@ -51,10 +53,12 @@ export class CourseInfoComponent implements OnInit {
         }
       }
     );
-    this._http.get<Response<boolean>>(`http://localhost:5233/api/courses/authorize/${this.courseId}`).subscribe(
+    this._http.get<Response<boolean>>(`http://localhost:5233/api/courses/authorize/${this.courseId}`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.isAquired = response.content;
+          console.log('---------------------');
+          console.log(this.isAquired);
         }
       }
     );
@@ -80,5 +84,14 @@ export class CourseInfoComponent implements OnInit {
     // this.filterCourses();
 
     // console.log(this.filteredCourses);
+  }
+
+  enroll() {
+    this._http.post<Response<object | null>>(`http://localhost:5233/api/courses/enroll/${this.courseId}`, {
+      withCredentials: true
+    }).subscribe(async (response) => {
+      }, (error: HttpErrorResponse) => {
+        console.log(error);
+      });
   }
 }
