@@ -1,5 +1,5 @@
 export class User {
-	id: number = 0;
+	id: string = '';
 	firstName: string = '';
 	lastName: string = '';
 	gender: boolean = false;
@@ -7,4 +7,5 @@ export class User {
 	date: string = '';
 	googleId: number = 0;
 	password: string = '';
+  userType: string = '';
 }

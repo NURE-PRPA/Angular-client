@@ -40,4 +40,6 @@ export class Course {
   lecturer: Lecturer | null = null;
   modules: Module[] | null = [];
   subscriptions: any = [];
+  isAcquired: boolean = false;
+  progress: number = 0;
 }

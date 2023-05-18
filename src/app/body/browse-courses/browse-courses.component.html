@@ -63,15 +63,17 @@
                 <td style="text-align: right">{{course.modules?.length ?? 0}} modules</td>
               </tr>
               <tr>
-                <td style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>{{course?.lecturer?.organization?.name}}</sup></td>
+                <td *ngIf="course.topic === 2 || course.topic === 5" style="color: greenyellow; font-size: 15px; font-weight: normal"><sup>{{course?.lecturer?.organization?.name}}</sup></td>
+                <td *ngIf="course.topic !== 2 && course.topic !== 5" style="color: deepskyblue; font-size: 15px; font-weight: normal"><sup>{{course?.lecturer?.organization?.name}}</sup></td>
               </tr>
               <tr>
                 <td style="font-size: 15px" colspan="2">{{topics[course.topic]}}</td>
               </tr>
               <tr>
                 <td>{{difficultiesNames[course.difficulty]}}</td>
-                <td *ngIf="course.price != 0" style="text-align: right">{{course.price}} $</td>
-                <td *ngIf="course.price == 0" style="text-align: right">Free</td>
+                <td *ngIf="course.price != 0 && !course.isAcquired" style="text-align: right">{{course.price}} $</td>
+                <td *ngIf="course.price == 0 && !course.isAcquired" style="text-align: right">Free</td>
+                <td *ngIf="course.isAcquired" style="text-align: right">Enrolled</td>
               </tr>
             </table>
           </div>

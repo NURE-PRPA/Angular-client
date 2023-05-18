@@ -32,10 +32,9 @@
       <tr>
         <td>
           <label for="exampleSelectOrganization1" class="form-label mt-4 text-primary">Organization</label>
-          <select class="form-select" id="exampleSelectOrganization1">
-            <option>NURE</option>
-            <option>KPI</option>
-            <option>KNUKIM</option>
+          <select class="form-select" id="exampleSelectOrganization1" formControlName="organization">
+            <option>Organizations</option>
+            <option *ngFor="let organization of organizations">{{organization?.name}}</option>
           </select>
         </td>
         <td>

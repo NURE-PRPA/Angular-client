@@ -31,7 +31,7 @@ export class HomeComponent {
       name: 'Geography'
     },
     {
-      image: 'assets/sections.images/physics.jpg',
+      image: 'assets/sections.images/physics.png',
       name: 'Physics'
     },
     {

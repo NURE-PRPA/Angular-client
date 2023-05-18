@@ -10,13 +10,15 @@
         </tr>
         <tr>
           <td style="color: deepskyblue; font-size: 17px; font-weight: normal"><sup>{{currentCourse?.lecturer?.organization?.name}}</sup></td>
-          <td *ngIf="currentCourse?.price != 0" style="text-align: right">{{currentCourse?.price}} $</td>
-          <td *ngIf="currentCourse?.price == 0" style="text-align: right">Free</td>
+          <td *ngIf="currentCourse?.price != 0 && !currentCourse?.isAcquired" style="text-align: right">{{currentCourse?.price}} $</td>
+          <td *ngIf="currentCourse?.price == 0 && !currentCourse?.isAcquired" style="text-align: right">Free</td>
+          <td *ngIf="currentCourse?.isAcquired" style="text-align: right">Enrolled</td>
         </tr>
         <tr>
           <td style="font-size: 17px">{{topics[currentCourse?.topic ?? 0]}}</td>
           <td style="text-align: right; vertical-align: bottom" rowspan="2">
-            <a *ngIf="!isAquired" type="button" class="btn btn-light" style="font-weight: bold;" #enr (click)="enroll()">Enroll</a>
+            <a *ngIf="!currentCourse?.isAcquired" type="button" class="btn btn-light" style="font-weight: bold;" #enr (click)="enroll()">Enroll</a>
+            <a *ngIf="certificate?.id" routerLink="/certificates/{{certificate?.id}}" type="button" class="btn btn-warning" style="font-weight: bold;">Certificate</a>
           </td>
         </tr>
         <tr>
@@ -42,11 +44,11 @@
       </div>
     </div>
 
-    <div *ngIf="isAquired" style="width: 100%; color: white; display: flex; justify-content: right">
+    <div *ngIf="currentCourse?.isAcquired" style="width: 100%; color: white; display: flex; justify-content: right">
       <div style="padding: 15px; width: 67%;">
         <h1>Course progress</h1>
         <div class="progress" style="background-color: #00000000; border: 1.5px solid white">
-          <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar bg-danger" role="progressbar" [style.width]="currentCourse?.progress + '%'" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
     </div>
@@ -105,8 +107,8 @@
             <tr></tr>
             <tr>
               <td style="width: 80%" colspan="2">Test</td>
-              <td *ngIf="isAquired" style="text-align: right;">1/{{currentModule?.test?.questions?.length ?? 0}}</td>
-              <td *ngIf="!isAquired" style="text-align: right;"></td>
+              <td *ngIf="currentCourse?.isAcquired" style="text-align: right;">{{currentModule?.test?.userAttempts?.[0]?.mark ?? 0}}/{{currentModule?.test?.questions?.length ?? 0}}</td>
+              <td *ngIf="!currentCourse?.isAcquired" style="text-align: right;"></td>
             </tr>
             <tr>
               <td colspan="3" style="font-size: 20px;">{{currentModule?.test?.name}}</td>

@@ -8,6 +8,8 @@ import {Module} from "../../../core/models/module";
 import {Time} from "@angular/common";
 import {User} from "../../../core/models/user";
 import {Listener} from "../../../core/models/listener";
+import {Organization} from "../../../core/models/organization";
+import {Certificate} from "../../../core/models/certificate";
 
 
 
@@ -31,14 +33,14 @@ export class CourseInfoComponent implements OnInit {
   currentCourse: Course | null = null;
   courseLoading: boolean = true;
   currentModule: Module | null | undefined = null;
-  isAquired: boolean | null = false;
   topics: Record<number, string> = Topics;
   difficultiesNames: Record<number, string> = Difficulties;
   estimate: number = 0;
+  certificate: Certificate | null = null;
   constructor(private currentRoute: ActivatedRoute, private _http: HttpClient) {}
   ngOnInit() {
     this.courseId = this.currentRoute.snapshot.paramMap.get('id');
-    this._http.get<Response<Course>>(`http://localhost:5233/api/courses/${this.courseId}`).subscribe(
+    this._http.get<Response<Course>>(`http://localhost:5233/api/courses/${this.courseId}`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.currentCourse = response.content;
@@ -48,17 +50,17 @@ export class CourseInfoComponent implements OnInit {
           for(let i = 0; i < count; i++){
             this.estimate += this.currentCourse?.modules?.[i].estimate ?? 0;
           }
-
           this.currentCourse?.modules?.sort((a, b) => a.position - b.position);
+
+          console.log(this.currentCourse?.progress);
         }
       }
     );
-    this._http.get<Response<boolean>>(`http://localhost:5233/api/courses/authorize/${this.courseId}`, {withCredentials: true}).subscribe(
+
+    this._http.get<Response<Certificate>>(`http://localhost:5233/api/certificates/course/${this.courseId}`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
-          this.isAquired = response.content;
-          console.log('---------------------');
-          console.log(this.isAquired);
+          this.certificate = response.content;
         }
       }
     );
@@ -89,7 +91,9 @@ export class CourseInfoComponent implements OnInit {
   enroll() {
     this._http.post<Response<object | null>>(`http://localhost:5233/api/courses/enroll/${this.courseId}`, {}, { withCredentials: true }).subscribe
     ( (response) => {
-      this.isAquired = true;
+      if (this.currentCourse) {
+        this.currentCourse.isAcquired = true;
+      }
 
       }, (error: HttpErrorResponse) => {
         console.log(error);

@@ -5,6 +5,7 @@ import {Difficulties} from "../../core/models/course";
 import {HttpClient} from "@angular/common/http";
 import {Response} from "../../core/models/Response";
 import {OperationResult} from "../../core/models/OperationResult";
+import {Organization} from "../../core/models/organization";
 
 @Component({
   selector: 'app-browse-courses',
@@ -35,7 +36,7 @@ export class BrowseCoursesComponent implements OnInit {
 
   ngOnInit() {
     this._http
-      .get<Response<Course[]>>('http://localhost:5233/api/courses/all')
+      .get<Response<Course[]>>('http://localhost:5233/api/courses/all', {withCredentials: true})
       .subscribe(
         (response) => {
           if (response.status == OperationResult.OK) {

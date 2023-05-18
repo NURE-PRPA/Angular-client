@@ -8,3 +8,37 @@
   color: #e14ee9;
   font-size: 30px;
 }
+
+.div-image1{
+  padding-top: 330px;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
+  width: 50%;
+  height: 550px;
+  background: url('/assets/register/kira.png') no-repeat;
+  background-position: -200px;
+  background-size: 160%;
+  transition: 0.5s;
+}
+
+.div-image2{
+  padding-top: 330px;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
+  width: 50%;
+  height: 550px;
+  background: url('/assets/register/storoz_bilheits.png') no-repeat;
+  background-position: center;
+  background-size: 160%;
+  transition: background-size 0.5s;
+}
+
+.div-image1:hover, .div-image2:hover{
+  background-size: 165%;
+}
+
+.div-image1:hover{
+  background-position: -220px;
+}

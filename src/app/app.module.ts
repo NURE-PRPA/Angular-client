@@ -19,6 +19,7 @@ import {RegisterModule} from "./body/auth/register/register.module";
 import { CourseInfoComponent } from './body/course-info/course-header/course-info.component';
 import {CourseStorage} from "./core/storage";
 import {ModuleListerComponent} from "./body/course-info/module-lister/module-lister.component";
+import { ViewCertificateComponent } from './body/view-certificate/view-certificate.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {ModuleListerComponent} from "./body/course-info/module-lister/module-lis
     BrowseCoursesComponent,
     ModuleListerComponent,
     CourseInfoComponent,
+    ViewCertificateComponent,
   ],
   imports: [
     BrowserModule,

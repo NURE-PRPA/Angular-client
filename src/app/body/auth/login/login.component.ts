@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit{
     this._http.post<Response<object | null>>('http://localhost:5233/api/auth/login', {
       email: this.email,
       password: this.password,
-      userType: 'listener'
+      userType: ''
     }, {
       withCredentials: true
     }).subscribe(async (response) => {
