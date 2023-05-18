@@ -105,7 +105,7 @@
             <tr></tr>
             <tr>
               <td style="width: 80%" colspan="2">Test</td>
-              <td *ngIf="isAquired" style="text-align: right;">16/18</td>
+              <td *ngIf="isAquired" style="text-align: right;">1/{{currentModule?.test?.questions?.length ?? 0}}</td>
               <td *ngIf="!isAquired" style="text-align: right;"></td>
             </tr>
             <tr>

@@ -87,9 +87,10 @@ export class CourseInfoComponent implements OnInit {
   }
 
   enroll() {
-    this._http.post<Response<object | null>>(`http://localhost:5233/api/courses/enroll/${this.courseId}`, {
-      withCredentials: true
-    }).subscribe(async (response) => {
+    this._http.post<Response<object | null>>(`http://localhost:5233/api/courses/enroll/${this.courseId}`, {}, { withCredentials: true }).subscribe
+    ( (response) => {
+      this.isAquired = true;
+
       }, (error: HttpErrorResponse) => {
         console.log(error);
       });
