@@ -17,12 +17,12 @@ import {ReactiveFormsModule} from "@angular/forms";
     RegisterComponent,
     RegisterListenerComponent,
   ],
-    imports: [
-        CommonModule,
-        RouterModule,
-        RegisterRoutingModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+      CommonModule,
+      RouterModule,
+      RegisterRoutingModule,
+      ReactiveFormsModule
+  ],
   exports: []
 })
 export class RegisterModule { }

@@ -1,0 +1,50 @@
+.div-certificate{
+  margin: auto;
+  width: 750px;
+  height: 500px;
+  background: linear-gradient(to right, #fae0ff, #f0a7ff);
+  /* border: 10px double #58006a; */
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.div-flag{
+  color: white;
+  padding-top: 50px;
+  text-align: center;
+  background: url('/assets/certificate/certificate-arrow.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center 0px;
+}
+
+.div-info{
+  padding-left: 40px;
+  padding-top: 30px;
+  color: #41004e;
+}
+
+.div-info h6{
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.div-info h5{
+  font-size: 15px;
+  margin-top: 30px;
+}
+
+.div-info h4{
+  font-size: 22px;
+}
+
+.div-info h3{
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.div-info h1{
+  font-size: 50px;
+  color: #520062;
+  margin-bottom: 50px;
+}
