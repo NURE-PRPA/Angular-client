@@ -20,6 +20,7 @@ import { CourseInfoComponent } from './body/course-info/course-header/course-inf
 import {CourseStorage} from "./core/storage";
 import {ModuleListerComponent} from "./body/course-info/module-lister/module-lister.component";
 import { ViewCertificateComponent } from './body/view-certificate/view-certificate.component';
+import { MyCoursesComponent } from './body/my-courses/my-courses.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ViewCertificateComponent } from './body/view-certificate/view-certifica
     ModuleListerComponent,
     CourseInfoComponent,
     ViewCertificateComponent,
+    MyCoursesComponent,
   ],
   imports: [
     BrowserModule,

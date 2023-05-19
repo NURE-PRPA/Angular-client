@@ -9,10 +9,13 @@
           <td style="text-align: right">{{currentCourse?.modules?.length ?? 0}} modules</td>
         </tr>
         <tr>
-          <td style="color: deepskyblue; font-size: 17px; font-weight: normal"><sup>{{currentCourse?.lecturer?.organization?.name}}</sup></td>
+<!--          <td style="color: deepskyblue; font-size: 17px; font-weight: normal"><sup>{{currentCourse?.lecturer?.organization?.name}}</sup></td>-->
+          <td *ngIf="currentCourse?.topic === 2 || currentCourse?.topic === 5" style="color: greenyellow; font-size: 17px; font-weight: normal"><sup>{{currentCourse?.lecturer?.organization?.name}}</sup></td>
+          <td *ngIf="currentCourse?.topic !== 2 && currentCourse?.topic !== 5" style="color: deepskyblue; font-size: 17px; font-weight: normal"><sup>{{currentCourse?.lecturer?.organization?.name}}</sup></td>
           <td *ngIf="currentCourse?.price != 0 && !currentCourse?.isAcquired" style="text-align: right">{{currentCourse?.price}} $</td>
           <td *ngIf="currentCourse?.price == 0 && !currentCourse?.isAcquired" style="text-align: right">Free</td>
-          <td *ngIf="currentCourse?.isAcquired" style="text-align: right">Enrolled</td>
+          <td *ngIf="currentCourse?.isAcquired && !certificate?.id" style="text-align: right">Enrolled</td>
+          <td *ngIf="certificate?.id" style="text-align: right">Completed</td>
         </tr>
         <tr>
           <td style="font-size: 17px">{{topics[currentCourse?.topic ?? 0]}}</td>
@@ -107,7 +110,8 @@
             <tr></tr>
             <tr>
               <td style="width: 80%" colspan="2">Test</td>
-              <td *ngIf="currentCourse?.isAcquired" style="text-align: right;">{{currentModule?.test?.userAttempts?.[0]?.mark ?? 0}}/{{currentModule?.test?.questions?.length ?? 0}}</td>
+              <td *ngIf="currentCourse?.isAcquired && currentModule?.test?.userAttempts?.[0]?.mark" style="text-align: right;">{{currentModule?.test?.userAttempts?.[0]?.mark ?? 0}}/{{currentModule?.test?.questions?.length ?? 0}}</td>
+              <td *ngIf="currentCourse?.isAcquired && !currentModule?.test?.userAttempts?.[0]?.mark" style="text-align: right;">-/{{currentModule?.test?.questions?.length ?? 0}}</td>
               <td *ngIf="!currentCourse?.isAcquired" style="text-align: right;"></td>
             </tr>
             <tr>

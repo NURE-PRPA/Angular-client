@@ -10,6 +10,7 @@ import {AuthGuardService} from "./share/guards/auth-guard.service";
 import {RegisterComponent} from "./body/auth/register/register.component";
 import {CourseInfoComponent} from "./body/course-info/course-header/course-info.component";
 import {ViewCertificateComponent} from "./body/view-certificate/view-certificate.component";
+import {MyCoursesComponent} from "./body/my-courses/my-courses.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,9 +22,13 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'profile/account', component: AccountComponent, canActivate: [AuthGuardService] },
   { path: 'certificates/:id', component: ViewCertificateComponent },
-  {path: 'browse', children: [
-      {path: 'courses', component: BrowseCoursesComponent },
-      {path: 'courses/:id', component: CourseInfoComponent}
+  { path: 'my', children: [
+      { path: 'courses', component: MyCoursesComponent },
+      { path: 'courses/:id', component: CourseInfoComponent}
+    ]},
+  { path: 'browse', children: [
+      { path: 'courses', component: BrowseCoursesComponent },
+      { path: 'courses/:id', component: CourseInfoComponent}
     ]},
   { path: '**', component: NotFoundComponent },
 ];
