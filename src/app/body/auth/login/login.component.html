@@ -20,6 +20,7 @@ background-color: #d490ff;">
     </div>
     <form [formGroup]="loginForm" class="log-in-form">
       <h3 class="text-primary" style="text-align: center">Log in</h3>
+      <h6 class="text-danger" style="text-align: center" *ngIf="loginResult && loginResult != 'Log in success'">{{loginResult}}</h6>
       <label for="exampleInputEmail1" class="form-label mt-4 text-primary">Email address</label>
       <input [(ngModel)]="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
       <label for="exampleInputPassword1" class="form-label mt-4 text-primary">Password</label>

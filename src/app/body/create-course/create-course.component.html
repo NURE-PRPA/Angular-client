@@ -1,0 +1,112 @@
+<div style="display: flex; flex-wrap: wrap; justify-content: left; height: fit-content; width: 100%; padding: 50px; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover;">
+
+  <form class="main-form">
+    <h3 class="text-primary">Create course</h3>
+
+    <table style="width: 100%">
+      <tr>
+        <td style="width: 45%">
+          <label for="exampleInputName1" class="form-label mt-4 text-primary">Name</label>
+          <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="email">
+        </td>
+        <td rowspan="3" style="width: 10%"></td>
+        <td>
+          <label for="exampleSelectTopic1" class="form-label mt-4 text-primary">Topic</label>
+          <select class="form-select" id="exampleSelectTopic1">
+            <option>Programming</option>
+            <option>Calculus</option>
+            <option>Chemistry</option>
+            <option>Geography</option>
+            <option>Physics</option>
+            <option>English</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td rowspan="2">
+          <label for="exampleInputDescription1" class="form-label mt-4 text-primary">Description</label>
+          <textarea type="text" rows="5" class="form-control" id="exampleInputDescription1" aria-describedby="emailHelp" placeholder="Enter description" formControlName="email"></textarea>
+        </td>
+        <td>
+          <label for="exampleSelectDifficulty1" class="form-label mt-4 text-primary">Difficulty</label>
+          <select class="form-select" id="exampleSelectDifficulty1">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="exampleInputPrice1" class="form-label mt-4 text-primary">Price (USD)</label>
+          <input type="number" step="0.01" min="0" max="200" class="form-control" id="exampleInputPrice1" aria-describedby="emailHelp" placeholder="Enter price" formControlName="email">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <form class="module-form">
+    <table style="width: 100%;">
+      <tr>
+        <td style="width: 5%; padding-top: 30px"><h3 class="text-primary">&nbsp;1</h3></td>
+        <td style="width: 25%; padding-top: 15px">
+          <label for="exampleInputModuleName1" class="form-label mt-4 text-primary">Module name</label>
+          <input type="text" class="form-control" id="exampleInputModuleName1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="email">
+        </td>
+        <td style="width: 48%; padding: 30px" rowspan="2">
+          <div class="files-div">
+            <div class="file-div">
+              <div style="background-image: url('assets/courses/pdf_logo.png'); width: 100%; height: 50px; background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+              <br>
+              <h6 style="font-size: 10px; margin-top: -15px">filename.pdf</h6>
+            </div>
+          </div>
+        </td>
+        <td style="text-align: center; padding-top: 30px">
+          <a class="btn btn-warning" style="font-size: 18px; padding: 7px 0px; width: 130px"><i class="bi bi-plus-square"></i>&nbsp;&nbsp;Add test</a><br>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <label for="exampleInputEstimate1" class="form-label mt-4 text-primary">Estimate</label>
+          <input type="number" class="form-control" id="exampleInputEstimate1" aria-describedby="emailHelp" placeholder="Enter estimate" formControlName="email">
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td style="text-align: center">
+          <a class="btn btn-light" style="font-size: 18px; padding: 7px 0px; width: 135px"><i class="bi bi-filetype-pdf"></i>&nbsp;&nbsp;Load files</a><br>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </form>
+
+  <div style="width: 100%; display: flex; justify-content: right">
+    <table class="manage-modules">
+      <tr>
+        <td style="width: fit-content; text-align: right">
+            <a class="btn btn-primary" style="font-size: 22px; padding: 7px 22px; width: 200px"><i class="bi bi-plus-square"></i>&nbsp;&nbsp;Add module</a><br>
+        </td>
+        <td>
+            <a class="btn btn-danger" style="font-size: 22px; padding: 7px 22px; width: 240px"><i class="bi bi-trash"></i>&nbsp;&nbsp;Remove module</a><br>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="width: 100%; text-align: center">
+    <button type="button" class="btn btn-success main-btn fw-bold" style="
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 10px 50px">Create course
+    </button>
+  </div>
+
+</div>

@@ -1,3 +1,13 @@
+.create-btn{
+  background: linear-gradient(90deg, var(--c1, #412961), var(--c2, #e14ee9) 51%, var(--c1, #412961)) var(--x, 0)/ 200%;
+  transition: 0.5s;
+  border-width: 0px;
+}
+
+.create-btn:hover {
+  --x: 100%;
+}
+
 .form-filter{
   margin-left: 90px;
   margin-bottom: 50px;

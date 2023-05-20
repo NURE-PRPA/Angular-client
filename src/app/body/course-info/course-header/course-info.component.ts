@@ -10,6 +10,7 @@ import {User} from "../../../core/models/user";
 import {Listener} from "../../../core/models/listener";
 import {Organization} from "../../../core/models/organization";
 import {Certificate} from "../../../core/models/certificate";
+import {Lecturer} from "../../../core/models/lecturer";
 
 
 
@@ -37,6 +38,7 @@ export class CourseInfoComponent implements OnInit {
   difficultiesNames: Record<number, string> = Difficulties;
   estimate: number = 0;
   certificate: Certificate | null = null;
+  isLecturer: boolean = false;
   constructor(private currentRoute: ActivatedRoute, private _http: HttpClient) {}
   ngOnInit() {
     this.courseId = this.currentRoute.snapshot.paramMap.get('id');
@@ -61,6 +63,14 @@ export class CourseInfoComponent implements OnInit {
       (response) => {
         if (response.status == OperationResult.OK) {
           this.certificate = response.content;
+        }
+      }
+    );
+
+    this._http.get<Response<object | null>>(`http://localhost:5233/api/profile/me/type`, {withCredentials: true}).subscribe(
+      (response) => {
+        if (response.status == OperationResult.OK) {
+          this.isLecturer = response.messages?.[0] == "lecturer";
         }
       }
     );

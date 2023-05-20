@@ -6,6 +6,7 @@ import {UserTrackerService} from "../../../share/user-tracker.service";
 import {Response} from "../../../core/models/Response";
 import {User} from "../../../core/models/user";
 import {Listener} from "../../../core/models/listener";
+import {Lecturer} from "../../../core/models/lecturer";
 @Component({
   selector: 'app-login',
   templateUrl: 'login.component.html',
@@ -14,6 +15,7 @@ import {Listener} from "../../../core/models/listener";
 export class LoginComponent implements OnInit{
   email: string = '';
   password: string = '';
+  loginResult: string = '';
 
   constructor(private _router: Router, private _http: HttpClient, private _userTracker: UserTrackerService) {
   }
@@ -33,22 +35,26 @@ export class LoginComponent implements OnInit{
     }, {
       withCredentials: true
     }).subscribe(async (response) => {
+      this.loginResult = response.messages?.[0];
+
+      if(this.loginResult == "Log in success"){
+        console.log("Success!!!");
+        this._http.get<Response<User | Listener | Lecturer>>('http://localhost:5233/api/profile/me/info', {
+          withCredentials: true
+        }).subscribe(
+          (response) => {
+            this._userTracker.setUser(response.content);
+          },
+          undefined,
+          () => {
+            this._router.navigateByUrl('/profile/account');
+          }
+        );
+      }
+
     }, (error: HttpErrorResponse) => {
       console.log(error);
-    },
-      () => {
-      this._http.get<Response<User | Listener>>('http://localhost:5233/api/profile/me/info', {
-        withCredentials: true
-      }).subscribe(
-        (response) => {
-          this._userTracker.setUser(response.content);
-        },
-        undefined,
-        () => {
-          this._router.navigateByUrl('/profile/account');
-        }
-      )
-      });
+    });
   }
   ngOnInit(): void {
   }

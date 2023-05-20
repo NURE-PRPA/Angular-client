@@ -1,6 +1,16 @@
 <!--3d6d79-->
 <div
   style="min-height: 1200px; height: fit-content; width: 100%; padding: 50px; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover">
+
+  <div *ngIf="isLecturer" style="width: 100%; text-align: center">
+    <button routerLink="create" type="button" class="btn btn-success create-btn fw-bold" style="
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 10px 50px">Create course
+    </button>
+  </div>
+
   <form action="" class="form-filter">
     <h5>Topic ({{ topicFilters.length }} selected)</h5>
     <div class="div-topic">
@@ -52,7 +62,7 @@
        style="padding-left: 90px; display: flex; justify-content: left; flex-wrap: wrap; width: 100%;">
     <div *ngFor="let course of filteredCourses" style="margin-right: 10px">
       <!--      <a *ngIf="filteredCourses?.indexOf(course) !== -1" routerLink="{{course.id}}"-->
-      <a routerLink="{{course.id}}"
+      <a routerLink="view/{{course.id}}"
          style="text-decoration: none;">
         <div [style.background]="'url(' + backgrounds[course.topic] + ')'" [style.background-size]="'cover'"
              class="card mb-3" style="width: 20rem; border-width: 0px;">

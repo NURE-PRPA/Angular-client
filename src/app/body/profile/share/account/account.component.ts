@@ -39,4 +39,6 @@ export class AccountComponent implements OnInit{
       console.log(error);
     })
   }
+
+    protected readonly undefined = undefined;
 }

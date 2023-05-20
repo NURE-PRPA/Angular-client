@@ -19,7 +19,7 @@
         </tr>
         <tr>
           <td style="font-size: 17px">{{topics[currentCourse?.topic ?? 0]}}</td>
-          <td style="text-align: right; vertical-align: bottom" rowspan="2">
+          <td *ngIf="!isLecturer" style="text-align: right; vertical-align: bottom" rowspan="2">
             <a *ngIf="!currentCourse?.isAcquired" type="button" class="btn btn-light" style="font-weight: bold;" #enr (click)="enroll()">Enroll</a>
             <a *ngIf="certificate?.id" routerLink="/certificates/{{certificate?.id}}" type="button" class="btn btn-warning" style="font-weight: bold;">Certificate</a>
           </td>

@@ -18,6 +18,7 @@ export class MyCoursesComponent implements OnInit {
   difficulties: string[] = ['1', '2', '3'];
   topics: Record<number, string> = Topics;
   difficultiesNames: Record<number, string> = Difficulties;
+  isLecturer: boolean = false;
 
   public backgrounds: Record<number, string> = {
     1 : 'assets/courses/course-background-purple.png',
@@ -45,6 +46,14 @@ export class MyCoursesComponent implements OnInit {
           }
         }
       );
+
+    this._http.get<Response<object | null>>(`http://localhost:5233/api/profile/me/type`, {withCredentials: true}).subscribe(
+      (response) => {
+        if (response.status == OperationResult.OK) {
+          this.isLecturer = response.messages?.[0] == "lecturer";
+        }
+      }
+    );
   }
 
   filterCourses() {
