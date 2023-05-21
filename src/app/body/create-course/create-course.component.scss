@@ -33,7 +33,7 @@
 }
 
 .manage-modules{
-  width: 40%;
+  width: fit-content;
   background-color: white;
   border-radius: 15px;
   box-shadow: 0px 0px 12px #412961;
@@ -68,4 +68,8 @@
   color: #2D033B;
   margin-bottom: 15px;
   margin-right: 10px;
+}
+
+.module-form table tr td{
+  padding: 5px;
 }
