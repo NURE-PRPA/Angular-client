@@ -1,0 +1,75 @@
+.main-btn {
+  background: linear-gradient(90deg, var(--c1, #412961), var(--c2, #e14ee9) 51%, var(--c1, #412961)) var(--x, 0)/ 200%;
+  transition: 0.5s;
+  border-width: 0px;
+}
+
+.main-btn:hover {
+  --x: 100%;
+}
+
+.main-form{
+  width: 30rem;
+  background-color: white;
+  padding: 20px;
+  padding-top: 0px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px #412961;
+  text-align: left;
+}
+
+.module-form{
+  width: 100%;
+  background-color: white;
+  padding: 0px 20px 20px 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px #412961;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.module-form table tr td{
+  vertical-align: top;
+}
+
+.manage-modules{
+  width: fit-content;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px #412961;
+  margin-bottom: 50px;
+  margin-top: -20px;
+  text-align: left;
+}
+
+.manage-modules tr td{
+  padding: 25px 25px;
+}
+
+.files-div{
+  border: 1.5px dashed #2D033B;
+  height: fit-content;
+  min-height: 100px;
+  border-radius: 10px;
+  padding: 10px;
+  background: linear-gradient(to right, #faebff, #e79eff);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.file-div{
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 7px;
+  border: 1px solid #2D033B;
+  width: 80px;
+  height: fit-content;
+  padding-top: 10px;
+  color: #2D033B;
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
+
+.module-form table tr td{
+  padding: 5px;
+}

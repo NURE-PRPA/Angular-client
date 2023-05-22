@@ -7,4 +7,5 @@ export class Test {
   duration: number = 0;
   questions: Question[] = [];
   userAttempts: UserAttempt[] = [];
+  moduleId: string | null = null;
 }

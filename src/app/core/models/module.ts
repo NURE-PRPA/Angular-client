@@ -9,6 +9,7 @@ export class Module {
   id: string = '';
   name: string = '';
   description: string = '';
+  courseId: string | null = '';
   course: Course | null = null;
   estimate: number = 0;
   position: number = 0;

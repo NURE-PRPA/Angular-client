@@ -21,7 +21,10 @@ import {CourseStorage} from "./core/storage";
 import {ModuleListerComponent} from "./body/course-info/module-lister/module-lister.component";
 import { ViewCertificateComponent } from './body/view-certificate/view-certificate.component';
 import { MyCoursesComponent } from './body/my-courses/my-courses.component';
-import { CreateCourseComponent } from './body/create-course/create-course.component';
+import { CreateCourseComponent } from './body/create/create-course/create-course.component';
+import { CreateModulesComponent } from './body/create/create-modules/create-modules.component';
+import { CreateTestsComponent } from './body/create/create-tests/create-tests.component';
+import { CreateTestComponent } from './body/create/create-test/create-test.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { CreateCourseComponent } from './body/create-course/create-course.compon
     ViewCertificateComponent,
     MyCoursesComponent,
     CreateCourseComponent,
+    CreateModulesComponent,
+    CreateTestsComponent,
+    CreateTestComponent,
   ],
   imports: [
     BrowserModule,

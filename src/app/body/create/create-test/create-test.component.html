@@ -1,0 +1,114 @@
+<div style="min-height: 600px; display: flex; flex-wrap: wrap; justify-content: center; height: fit-content; width: 100%; padding: 50px; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover;">
+  <div style="width: 100%;">
+
+    <h1 style="text-align: center; color: white">Test for module "{{module?.name}}"</h1>
+
+    <br>
+    <br>
+
+
+    <form (ngSubmit)="onSubmit()" #testForm="ngForm" class="main-form">
+      <h3>Test info</h3>
+
+      <table style="width: 100%">
+        <tr>
+          <td>
+            <label for="testName" class="form-label mt-4 text-primary">Name:</label>
+            <input type="text" class="form-control" id="testName" aria-describedby="emailHelp" name="testName" placeholder="Enter name" [(ngModel)]="test.name">
+          </td>
+          <td>
+            <label for="testDuration" class="form-label mt-4 text-primary">Duration:</label>
+            <input type="number" class="form-control" id="testDuration" name="testDuration" [(ngModel)]="test.duration" required>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+      <br>
+
+      <h3>Questions</h3>
+
+      <div>
+<!--        <label for="testName">Test Name:</label>-->
+<!--        <input type="text" id="testName" name="testName" [(ngModel)]="test.name" required>-->
+      </div>
+
+      <div>
+<!--        <label for="testDuration">Duration:</label>-->
+<!--        <input type="number" id="testDuration" name="testDuration" [(ngModel)]="test.duration" required>-->
+      </div>
+
+      <div *ngFor="let question of test.questions; let i = index" class="question-div">
+
+        <table style="width: 100%">
+          <tr>
+            <td rowspan="2" style="width: 5%;"><h3>{{i + 1}}</h3></td>
+            <td style="width: 40%;" rowspan="2">
+<!--              <label for="questionText{{i}}" class="form-label mt-4 text-primary">Text:</label>-->
+              <textarea type="text" rows="3" class="form-control"  id="questionText{{i}}" name="questionText{{i}}" [(ngModel)]="question.text" required></textarea>
+            </td>
+            <td>
+              <div style="margin-bottom: 20px">
+                <table style="width: 100%" *ngFor="let answer of question.answers; let j = index">
+                  <tr>
+                    <td style="width: 10%"></td>
+                    <td style="text-align: center; padding-top: 10px">
+<!--                      <label for="isCorrect{{i}}{{j}}" class="form-label mt-4 text-primary">Is Correct:</label>-->
+<!--                      <br>-->
+                      <input type="checkbox" id="isCorrect{{i}}{{j}}" name="isCorrect{{i}}{{j}}" [(ngModel)]="answer.isCorrect">
+                    </td>
+                    <td>
+<!--                      <label for="answerText{{i}}{{j}}" class="form-label mt-4 text-primary">Answer {{j+1}}:</label>-->
+                      <input type="text" class="form-control" id="answerText{{i}}{{j}}" name="answerText{{i}}{{j}}" [(ngModel)]="answer.text" required>
+                    </td>
+                    <td style="padding-top: 0px; text-align: right">
+                      <button type="button" class="btn btn-danger" style="font-size: 18px; width: 50px" (click)="removeAnswer(i, j)"><i class="bi bi-trash"></i></button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div style="text-align: right; width: 100%;">
+                <button type="button" class="btn btn-light" style="font-size: 15px; padding: 7px 0px; width: 140px" (click)="addAnswer(i)"><i class="bi bi-plus-square"></i>&nbsp;&nbsp;Add answer</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: right">
+              <button type="button" class="btn btn-danger" style="font-size: 15px; width: 170px" (click)="removeQuestion(i)"><i class="bi bi-trash"></i>&nbsp;&nbsp;Remove question</button>
+            </td>
+          </tr>
+        </table>
+
+
+<!--        <div>-->
+<!--          <label for="questionText{{i}}">Question {{i+1}}:</label>-->
+<!--          <input type="text" id="questionText{{i}}" name="questionText{{i}}" [(ngModel)]="question.text" required>-->
+<!--        </div>-->
+
+
+<!--        <button type="button" (click)="addAnswer(i)">Add Answer</button>-->
+
+      </div>
+
+      <div style="width: 100%; text-align: right;">
+        <button type="button" class="btn btn-primary" style="font-size: 18px; padding: 7px 0px; width: 170px" (click)="addQuestion()"><i class="bi bi-plus-square"></i>&nbsp;&nbsp;Add question</button>
+      </div>
+
+<!--      <button type="button" (click)="addQuestion()">Add Question</button>-->
+
+<!--      <div>-->
+<!--        <button type="submit" [disabled]="!testForm.valid">Create Test</button>-->
+<!--      </div>-->
+
+      <div style="width: 100%; text-align: center">
+        <button type="submit" class="btn btn-success main-btn fw-bold" style="
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 10px 50px">Add test
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

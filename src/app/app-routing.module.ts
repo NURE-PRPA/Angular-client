@@ -11,7 +11,10 @@ import {RegisterComponent} from "./body/auth/register/register.component";
 import {CourseInfoComponent} from "./body/course-info/course-header/course-info.component";
 import {ViewCertificateComponent} from "./body/view-certificate/view-certificate.component";
 import {MyCoursesComponent} from "./body/my-courses/my-courses.component";
-import {CreateCourseComponent} from "./body/create-course/create-course.component";
+import {CreateCourseComponent} from "./body/create/create-course/create-course.component";
+import {CreateModulesComponent} from "./body/create/create-modules/create-modules.component";
+import {CreateTestsComponent} from "./body/create/create-tests/create-tests.component";
+import {CreateTestComponent} from "./body/create/create-test/create-test.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,7 +29,10 @@ const routes: Routes = [
   { path: 'my/courses', children: [
       { path: '', component: MyCoursesComponent },
       { path: 'view/:id', component: CourseInfoComponent},
-      { path: 'create', component: CreateCourseComponent }
+      { path: 'create/course', component: CreateCourseComponent },
+      { path: 'create/modules/:id', component: CreateModulesComponent },
+      { path: 'create/tests/:id', component: CreateTestsComponent },
+      { path: 'create/test/:id', component: CreateTestComponent }
     ]},
   { path: 'browse', children: [
       { path: 'courses', component: BrowseCoursesComponent },

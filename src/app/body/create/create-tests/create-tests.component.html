@@ -1,0 +1,31 @@
+<div style="min-height: 600px; display: flex; flex-wrap: wrap; justify-content: center; height: fit-content; width: 100%; padding: 50px; margin: auto; background: url('https://images.unsplash.com/photo-1614852206732-6728910dc175?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80') no-repeat; background-size: cover;">
+  <div style="width: 100%;">
+
+    <h1 style="text-align: center; color: white">Step 3: Tests</h1>
+
+    <br>
+    <br>
+
+    <div *ngFor="let module of course?.modules" class="main-div">
+      <table style="width: 100%;">
+        <tr>
+          <td style="width: 10%; padding-top: 10px; padding-left: 10px"><h3>{{module?.position}}</h3></td>
+          <td style="width: 45%">{{module?.name}}</td>
+          <td style="text-align: right">
+            <button *ngIf="!module?.test" (click)="addTest(module?.id)" class="btn btn-success" type="button"><i class="bi bi-plus-square"></i> Add test</button>
+            <h6 *ngIf="module?.test">Test added</h6>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="width: 100%; text-align: center">
+      <button (click)="submit()" class="btn btn-success main-btn fw-bold" style="
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 10px 50px">Finish
+      </button>
+    </div>
+  </div>
+</div>
