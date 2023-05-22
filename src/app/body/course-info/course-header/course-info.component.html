@@ -98,11 +98,14 @@
 
     <!--    <app-module-lister></app-module-lister>-->
 
-    <div style="padding: 15px; width: 67%; border: 1px solid #2D033B; background-color: #ffffff38; border-radius: 10px; display: flex; flex-wrap: wrap; color: white">
+    <div style="padding: 15px; width: 67%; border: 1px solid #2D033B; background-color: #ffffff38; border-radius: 10px; display: flex; flex-wrap: wrap; align-content: flex-start; color: white">
 
       <div *ngIf="currentModule" style="width: 100%; align-items: flex-start; justify-content: space-between; display: flex">
         <h3 style="margin-right: 15px">{{currentModule?.name}}</h3>
         <h4>{{currentModule?.estimate}} hours</h4>
+      </div>
+      <div *ngIf="currentModule" style="width: 100%; align-items: flex-start; justify-content: space-between; display: flex">
+        <h6>{{currentModule?.description}}</h6>
       </div>
       <a *ngIf="currentModule?.test" href="#" style="text-decoration: none; width: 100%;">
         <div style="background-color: #ffffff; text-align: left; border-radius: 7px; border: 1px solid #2D033B; width: fit-content; height: fit-content; padding: 8px; padding-top: 15px; color: #2D033B; margin-bottom: 15px;">

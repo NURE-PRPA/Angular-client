@@ -5,4 +5,5 @@ export class ContentContainer {
   description: string = '';
   datetime: Date | null = null;
   binary: any = null;
+  modulePosition: number = -1;
 }

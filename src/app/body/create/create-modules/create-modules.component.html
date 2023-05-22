@@ -18,19 +18,12 @@
                     <label for="moduleName" class="form-label mt-4 text-primary">Module name</label>
                     <input type="text" class="form-control" id="moduleName" aria-describedby="emailHelp" placeholder="Enter name" formControlName="name">
                   </td>
-                  <td rowspan="3" style="width: 20%">
+                  <td rowspan="3" style="width: 55%">
                     <label for="moduleDescription" class="form-label mt-4 text-primary">Description:</label>
                     <textarea id="moduleDescription" class="form-control" formControlName="description" rows="5"></textarea>
                   </td>
-                  <td rowspan="3" style="padding-top: 30px">
-                    <div class="files-div">
-                      <div class="file-div">
-                        <h6 style="font-size: 10px;">filename.pdf</h6>
-                      </div>
-                    </div>
-                  </td>
                   <td style="width: 20%; text-align: left; padding-top: 30px">
-                    <a class="btn btn-light" style="font-size: 18px; padding: 7px 0px; width: 135px"><i class="bi bi-filetype-pdf"></i>&nbsp;&nbsp;Load files</a>
+
                   </td>
                 </tr>
                 <tr>
@@ -47,6 +40,48 @@
                 </tr>
               </table>
             </div>
+
+<!--            <div class="module-form">-->
+<!--              <table style="width: 100%;">-->
+<!--                <tr>-->
+<!--                  <td rowspan="3" style="width: 5%; padding-top: 22px"><h3 class="text-primary">&nbsp;{{ i + 1 }}</h3></td>-->
+<!--                  <td style="width: 20%">-->
+<!--                    <label for="moduleName" class="form-label mt-4 text-primary">Module name</label>-->
+<!--                    <input type="text" class="form-control" id="moduleName" aria-describedby="emailHelp" placeholder="Enter name" formControlName="name">-->
+<!--                  </td>-->
+<!--                  <td rowspan="3" style="width: 20%">-->
+<!--                    <label for="moduleDescription" class="form-label mt-4 text-primary">Description:</label>-->
+<!--                    <textarea id="moduleDescription" class="form-control" formControlName="description" rows="5"></textarea>-->
+<!--                  </td>-->
+<!--                  <td rowspan="3" style="padding-top: 30px; width: 35%">-->
+<!--                    <div class="files-div">-->
+<!--                      <div *ngFor="let container of contentContainers">-->
+<!--                        <div *ngIf="container?.modulePosition === i" class="file-div">-->
+<!--                          <h6 style="font-size: 10px;">{{container?.name}}</h6>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </td>-->
+<!--                  <td style="width: 20%; text-align: left; padding-top: 30px">-->
+<!--                    <input class="input-file" name="file{{i}}" id="file{{i}}" type="file" (change)="handleFileInput($event, i)" />-->
+<!--&lt;!&ndash;                    <input type="file" (change)="handleFileInput($event.target.files)" />&ndash;&gt;-->
+<!--                    <label for="file{{i}}" class="btn btn-light" style="font-size: 18px; padding: 7px 0px; width: 135px"><i class="bi bi-filetype-pdf"></i>&nbsp;&nbsp;Load file</label>-->
+<!--                  </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td rowspan="2" style="padding-top: 0px">-->
+<!--                    <label for="estimate" class="form-label mt-4 text-primary">Estimate</label>-->
+<!--                    <input type="number" class="form-control" id="estimate" aria-describedby="emailHelp" placeholder="Enter estimate" formControlName="estimate">-->
+<!--                  </td>-->
+<!--                  <td rowspan="2" style="text-align: right; vertical-align: bottom">-->
+<!--                    <button class="btn btn-danger" type="button" (click)="removeModule(i)"><i class="bi bi-trash"></i> Remove Module</button>-->
+<!--                  </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                  <td></td>-->
+<!--                </tr>-->
+<!--              </table>-->
+<!--            </div>-->
 
           </div>
         </div>

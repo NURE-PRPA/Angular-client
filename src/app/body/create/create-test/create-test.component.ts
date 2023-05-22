@@ -9,6 +9,7 @@ import {Module} from "../../../core/models/module";
 import {Question} from "../../../core/models/question";
 import {Test} from "../../../core/models/test";
 import {Answer} from "../../../core/models/answer";
+import {delay, of} from "rxjs";
 
 @Component({
   selector: 'app-create-test',
@@ -26,7 +27,15 @@ export class CreateTestComponent implements OnInit {
   constructor(private currentRoute: ActivatedRoute, private _http: HttpClient, private formBuilder: FormBuilder, private _router: Router) {}
   ngOnInit() {
     this.moduleId = this.currentRoute.snapshot.paramMap.get('id');
-    this._http.get<Response<Module>>(`http://localhost:5233/api/modules/${this.moduleId}`, {withCredentials: true}).subscribe(
+    this._http.get<Response<Module>>(`http://localhost:5233/api/modules/${this.moduleId}`, { withCredentials: true }).subscribe(
+      (response) => {
+        if (response.status == OperationResult.OK) {
+          this.courseId = response.content?.courseId;
+          this.module = response.content;
+        }
+      }
+    );
+    this._http.get<Response<Module>>(`http://localhost:5233/api/modules/${this.moduleId}`, { withCredentials: true }).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.courseId = response.content?.courseId;
