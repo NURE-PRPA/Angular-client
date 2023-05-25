@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit{
     ])
   });
   async onLoginClick() {
-    this._http.post<Response<object | null>>('http://localhost:5233/api/auth/login', {
+    this._http.post<Response<object | null>>('https://quantedapi.azurewebsites.net/api/auth/login', {
       email: this.email,
       password: this.password,
       userType: ''
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit{
 
       if(this.loginResult == "Log in success"){
         console.log("Success!!!");
-        this._http.get<Response<User | Listener | Lecturer>>('http://localhost:5233/api/profile/me/info', {
+        this._http.get<Response<User | Listener | Lecturer>>('https://quantedapi.azurewebsites.net/api/profile/me/info', {
           withCredentials: true
         }).subscribe(
           (response) => {
