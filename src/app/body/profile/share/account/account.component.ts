@@ -22,7 +22,7 @@ export class AccountComponent implements OnInit{
   ngOnInit(): void {
     this.user = this._userTracker.User;
 
-    this._http.get<Response<Certificate[]>>(`http://localhost:5233/api/certificates/my`, {withCredentials: true}).subscribe(
+    this._http.get<Response<Certificate[]>>(`https://quantedapi.azurewebsites.net/api/certificates/my`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.certificates = response.content;
@@ -32,7 +32,7 @@ export class AccountComponent implements OnInit{
   }
 
   logOut(){
-    this._http.post<Response<object | null>>('http://localhost:5233/api/auth/logout', {}, {withCredentials: true})
+    this._http.post<Response<object | null>>('https://quantedapi.azurewebsites.net/api/auth/logout', {}, {withCredentials: true})
       .subscribe( (response) => {
         this._router.navigateByUrl('/auth/login');
     }, (error: HttpErrorResponse) => {

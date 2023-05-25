@@ -25,7 +25,7 @@ export class RegisterListenerComponent implements OnInit {
   // organizations: Organization[] | null = [];
 
   ngOnInit() {
-    // this._http.get<Response<Organization[]>>(`http://localhost:5233/api/organizations/all`).subscribe(
+    // this._http.get<Response<Organization[]>>(`https://quantedapi.azurewebsites.net/api/organizations/all`).subscribe(
     //   (response) => {
     //     if (response.status == OperationResult.OK) {
     //       this.organizations = response.content;
@@ -73,7 +73,7 @@ export class RegisterListenerComponent implements OnInit {
     //
     // user.organization.lecturers = [];
 
-    this._http.post<Response<null>>(`http://localhost:5233/api/auth/listener/register/standart`, user).subscribe
+    this._http.post<Response<null>>(`https://quantedapi.azurewebsites.net/api/auth/listener/register/standart`, user).subscribe
     ( async (response) => {
       this.userTracker.setUser(user);
       await this._router.navigateByUrl('profile/account');

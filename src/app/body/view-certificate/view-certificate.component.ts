@@ -18,7 +18,7 @@ export class ViewCertificateComponent implements OnInit {
   constructor(private currentRoute: ActivatedRoute, private _http: HttpClient) {}
   ngOnInit() {
     this.certificateId = this.currentRoute.snapshot.paramMap.get('id');
-    this._http.get<Response<Certificate>>(`http://localhost:5233/api/certificates/${this.certificateId}`, {withCredentials: true}).subscribe(
+    this._http.get<Response<Certificate>>(`https://quantedapi.azurewebsites.net/api/certificates/${this.certificateId}`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.certificate = response.content;

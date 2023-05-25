@@ -58,7 +58,7 @@ export class CreateCourseComponent implements OnInit {
       course.topic = (this.topics?.indexOf(topic) ?? -1) + 1;
       course.difficulty = (this.difficulties?.indexOf(difficulty) ?? -1) + 1;
 
-      this._http.get<Response<User | Listener | Lecturer>>('http://localhost:5233/api/profile/me/info', {
+      this._http.get<Response<User | Listener | Lecturer>>('https://quantedapi.azurewebsites.net/api/profile/me/info', {
         withCredentials: true
       }).subscribe(
         (response) => {
@@ -73,7 +73,7 @@ export class CreateCourseComponent implements OnInit {
         undefined,
         () => {
           console.log(course);
-          this._http.post<Response<Course | null>>(`http://localhost:5233/api/courses/add`, course, {withCredentials: true}).subscribe
+          this._http.post<Response<Course | null>>(`https://quantedapi.azurewebsites.net/api/courses/add`, course, {withCredentials: true}).subscribe
           ( async (response) => {
             let courseId = response.content?.id;
 

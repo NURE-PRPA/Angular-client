@@ -27,7 +27,7 @@ export class CreateTestComponent implements OnInit {
   constructor(private currentRoute: ActivatedRoute, private _http: HttpClient, private formBuilder: FormBuilder, private _router: Router) {}
   ngOnInit() {
     this.moduleId = this.currentRoute.snapshot.paramMap.get('id');
-    this._http.get<Response<Module>>(`http://localhost:5233/api/modules/${this.moduleId}`, { withCredentials: true }).subscribe(
+    this._http.get<Response<Module>>(`https://quantedapi.azurewebsites.net/api/modules/${this.moduleId}`, { withCredentials: true }).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.courseId = response.content?.courseId;
@@ -35,7 +35,7 @@ export class CreateTestComponent implements OnInit {
         }
       }
     );
-    this._http.get<Response<Module>>(`http://localhost:5233/api/modules/${this.moduleId}`, { withCredentials: true }).subscribe(
+    this._http.get<Response<Module>>(`https://quantedapi.azurewebsites.net/api/modules/${this.moduleId}`, { withCredentials: true }).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.courseId = response.content?.courseId;
@@ -77,7 +77,7 @@ export class CreateTestComponent implements OnInit {
     this.test.moduleId = this.moduleId;
 
     this._router.navigateByUrl('my/courses/create/tests/' + this.courseId);
-    this._http.post<Response<Course | null>>(`http://localhost:5233/api/tests/add`, this.test, {withCredentials: true}).subscribe
+    this._http.post<Response<Course | null>>(`https://quantedapi.azurewebsites.net/api/tests/add`, this.test, {withCredentials: true}).subscribe
     ( async (response) => {
       await this._router.navigateByUrl('my/courses/create/tests/' + this.courseId);
     }, (error: HttpErrorResponse) => {

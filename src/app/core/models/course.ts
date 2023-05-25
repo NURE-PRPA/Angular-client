@@ -26,7 +26,7 @@ export const Topics: Record<number, string> = {
 export const Difficulties: Record<number, string> = {
   0 : "None",
   1 : "Beginner",
-  2 : "Integmediate",
+  2 : "Intermediate",
   3 : "Advanced"
 };
 

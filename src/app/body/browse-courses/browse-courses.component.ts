@@ -36,7 +36,7 @@ export class BrowseCoursesComponent implements OnInit {
 
   ngOnInit() {
     this._http
-      .get<Response<Course[]>>('http://localhost:5233/api/courses/all', {withCredentials: true})
+      .get<Response<Course[]>>('https://quantedapi.azurewebsites.net/api/courses/all', {withCredentials: true})
       .subscribe(
         (response) => {
           if (response.status == OperationResult.OK) {

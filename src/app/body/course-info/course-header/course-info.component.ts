@@ -42,7 +42,7 @@ export class CourseInfoComponent implements OnInit {
   constructor(private currentRoute: ActivatedRoute, private _http: HttpClient) {}
   ngOnInit() {
     this.courseId = this.currentRoute.snapshot.paramMap.get('id');
-    this._http.get<Response<Course>>(`http://localhost:5233/api/courses/${this.courseId}`, {withCredentials: true}).subscribe(
+    this._http.get<Response<Course>>(`https://quantedapi.azurewebsites.net/api/courses/${this.courseId}`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.currentCourse = response.content;
@@ -59,7 +59,7 @@ export class CourseInfoComponent implements OnInit {
       }
     );
 
-    this._http.get<Response<Certificate>>(`http://localhost:5233/api/certificates/course/${this.courseId}`, {withCredentials: true}).subscribe(
+    this._http.get<Response<Certificate>>(`https://quantedapi.azurewebsites.net/api/certificates/course/${this.courseId}`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.certificate = response.content;
@@ -67,7 +67,7 @@ export class CourseInfoComponent implements OnInit {
       }
     );
 
-    this._http.get<Response<object | null>>(`http://localhost:5233/api/profile/me/type`, {withCredentials: true}).subscribe(
+    this._http.get<Response<object | null>>(`https://quantedapi.azurewebsites.net/api/profile/me/type`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.isLecturer = response.messages?.[0] == "lecturer";
@@ -99,7 +99,7 @@ export class CourseInfoComponent implements OnInit {
   }
 
   enroll() {
-    this._http.post<Response<object | null>>(`http://localhost:5233/api/courses/enroll/${this.courseId}`, {}, { withCredentials: true }).subscribe
+    this._http.post<Response<object | null>>(`https://quantedapi.azurewebsites.net/api/courses/enroll/${this.courseId}`, {}, { withCredentials: true }).subscribe
     ( (response) => {
       if (this.currentCourse) {
         this.currentCourse.isAcquired = true;

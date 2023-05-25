@@ -35,7 +35,7 @@ export class MyCoursesComponent implements OnInit {
 
   ngOnInit() {
     this._http
-      .get<Response<Course[]>>('http://localhost:5233/api/courses/my', {withCredentials: true})
+      .get<Response<Course[]>>('https://quantedapi.azurewebsites.net/api/courses/my', {withCredentials: true})
       .subscribe(
         (response) => {
           if (response.status == OperationResult.OK) {
@@ -47,7 +47,7 @@ export class MyCoursesComponent implements OnInit {
         }
       );
 
-    this._http.get<Response<object | null>>(`http://localhost:5233/api/profile/me/type`, {withCredentials: true}).subscribe(
+    this._http.get<Response<object | null>>(`https://quantedapi.azurewebsites.net/api/profile/me/type`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.isLecturer = response.messages?.[0] == "lecturer";

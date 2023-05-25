@@ -18,7 +18,7 @@ export class CreateTestsComponent implements OnInit {
   constructor(private currentRoute: ActivatedRoute, private _http: HttpClient, private formBuilder: FormBuilder, private _router: Router) {}
   ngOnInit() {
     this.courseId = this.currentRoute.snapshot.paramMap.get('id');
-    this._http.get<Response<Course>>(`http://localhost:5233/api/courses/${this.courseId}`, {withCredentials: true}).subscribe(
+    this._http.get<Response<Course>>(`https://quantedapi.azurewebsites.net/api/courses/${this.courseId}`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
           this.course = response.content;

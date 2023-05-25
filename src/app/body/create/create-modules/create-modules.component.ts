@@ -21,7 +21,7 @@ export class CreateModulesComponent implements OnInit {
   constructor(private currentRoute: ActivatedRoute, private _http: HttpClient, private formBuilder: FormBuilder, private _router: Router) {}
   ngOnInit() {
     this.courseId = this.currentRoute.snapshot.paramMap.get('id');
-    this._http.get<Response<Course>>(`http://localhost:5233/api/courses/${this.courseId}`, {withCredentials: true}).subscribe(
+    this._http.get<Response<Course>>(`https://quantedapi.azurewebsites.net/api/courses/${this.courseId}`, {withCredentials: true}).subscribe(
       (response) => {
         if (response.status == OperationResult.OK) {
 
@@ -66,13 +66,13 @@ export class CreateModulesComponent implements OnInit {
         }
 
 
-        this._http.post<Response<Module | null>>(`http://localhost:5233/api/modules/add`, course.modules?.[i], {withCredentials: true}).subscribe
+        this._http.post<Response<Module | null>>(`https://quantedapi.azurewebsites.net/api/modules/add`, course.modules?.[i], {withCredentials: true}).subscribe
         ( async (response) => {
           // for(let i = 0; i < this.contentContainers.length; i++){
           //   console.log(this.contentContainers[i].modulePosition + ' - ' + response.content?.position);
           //   console.log(this.contentContainers[i]);
           //   const jsonContentContainer = JSON.stringify(this.contentContainers[i]);
-          //   fetch('http://localhost:5233/api/containers/add', {
+          //   fetch('https://quantedapi.azurewebsites.net/api/containers/add', {
           //     method: 'POST',
           //     headers: {
           //       'Content-Type': 'application/json'
@@ -165,7 +165,7 @@ export class CreateModulesComponent implements OnInit {
 
   sendContentContainerToBackend(contentContainer: ContentContainer): void {
     // Assuming you're using Angular's HttpClient to send the data
-    this._http.post<Response<ContentContainer | null>>('http://localhost:5233/api/containers/add', contentContainer, {withCredentials: true})
+    this._http.post<Response<ContentContainer | null>>('https://quantedapi.azurewebsites.net/api/containers/add', contentContainer, {withCredentials: true})
       .subscribe(
         (response) => {
           // Handle response from the backend
